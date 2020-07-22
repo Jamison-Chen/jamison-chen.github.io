@@ -6,7 +6,38 @@ body{
 }
 header{
 	height:80px;
-	background-color:#F7DCF0;
+	background-color:#F4B400;
+}
+header>div{
+	height: 60px;
+	width: 50%;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+	line-height: 80px;
+	display:inline-block;
+}
+#webName{
+	font-weight: 600;
+	color: #000000;
+	font-size:40px;
+}
+header>nav{
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	display:inline-block;
+}
+header>nav>a{
+	font-weight: 100;
+	color: #000000;
+	font-size:20px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 main{
 	margin-left: 10px;
@@ -14,20 +45,12 @@ main{
 }
 main>h3{
 	font-size:25px;
-}
-header a{
-	color: #000;
-	margin-top: 40px;
-	margin-left: 10px;
+	margin-top: 0px;
 	margin-bottom: 0px;
-	margin-right: 10px;
-}
-header b{
-	 font-size:40px;
-	 margin-top: 20px;
-	 margin-left: 10%;
-	 margin-right: 10%;
-	 display:inline-block
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 a{
 	text-decoration: none;
@@ -108,4 +131,11 @@ a{
 }
 #canvas001{
 	width:100%;
+}
+footer{
+	height:80px;
+	background-color:#000000;
+	color:white;
+	line-height:40px;
+	margin: auto;
 }

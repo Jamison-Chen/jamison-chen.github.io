@@ -4,13 +4,16 @@
 		<meta charset="UTF-8">
 		<title>Jamison</title>
 		<script type="text/javascript" src="jquery-3.5.1.js"></script>
-		<link href="./js/forPage2.js" rel="stylesheet" type="text/js">
+		<script src="./js/forPage2.js"></script>
 		<link href="./css/forPage2.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<header style="height:80px;background-color:#F76369">
-			<b style="font-size:40px;width:30%;display:inline-block"><a href="index.html">HTML Practice</a></b>
-			<nav style="font-size:20px;display:inline-block">
+		<header>
+			<div>
+				<img src="./images/html5.svg" style="height:50%" alt="This is logo."/>
+				<a href="index.html" id="webName">HTML Practice</a>
+			</div>
+			<nav>
 				<a href="page1.html">Link 1</a>
 				<a href="page2.html">Link 2</a>
 				<a href="page3.html">Link 3</a>
@@ -18,12 +21,31 @@
 			</nav>
 		</header>
 		<main>
-			<div>
-				<img src="./images/Keynes.jpg" class="KeynesPic"/>
-				<img src="./images/Keynes.jpg" class="KeynesPic"/>
+			<h3>Keynes in Different Opacity</h3>
+			<div class="imageContainer">
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic01"/>
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic02"/>
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic03"/>
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic04"/>
 			</div>
+			<h3>Click to Move Keynes!</h3>
+			<div class="imageContainer">
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic05"/>
+			</div>
+			<h3>Growing Keynes</h3>
+			<input type="button" name="button" id="feedKeynes" value="Grow up!" class="button"/>
+			<input type="button" name="button" id="starveKeynes" value="Smaller!" class="button"/>
+			<div class="imageContainer">
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic06" style="display:block; margin: auto;" />
+			</div>
+			<h3>Hiding Keynes</h3>
+			<div class="imageContainer">
+				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic07"/>
+			</div>
+			<input type="button" name="button" id="hideKeynes" value="Hide up!" class="button"/>
+			<input type="button" name="button" id="showKeynes" value="Show up!" class="button"/>
 		</main>
-		<footer style="height:80px;background-color:#000000; color:white">
+		<footer>
 			License:<br/>
 			<address>Address: Taipei, Taiwan</address>
 		</footer>
