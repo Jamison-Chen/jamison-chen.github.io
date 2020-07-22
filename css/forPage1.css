@@ -1,0 +1,111 @@
+body{
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+}
+header{
+	height:80px;
+	background-color:#F7DCF0;
+}
+main{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+main>h3{
+	font-size:25px;
+}
+header a{
+	color: #000;
+	margin-top: 40px;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+}
+header b{
+	 font-size:40px;
+	 margin-top: 20px;
+	 margin-left: 10%;
+	 margin-right: 10%;
+	 display:inline-block
+}
+a{
+	text-decoration: none;
+}
+@keyframes squareMove{
+	0% {
+		margin-top: 150px; 
+		margin-bottom: 250px;
+		margin-left:100px; 
+		margin-right:200px;
+		background-color: #4285F4; 
+	}
+	25% {
+		margin-top: 250px;
+		margin-bottom: 150px;
+		margin-left:100px; 
+		margin-right:200px;
+		background-color: #DB4437;
+	}
+	50% {
+		margin-top: 250px;
+		margin-bottom: 150px;
+		margin-left:200px;
+		margin-right:100px;
+		background-color: #F4B400;
+	}
+	75% {
+		margin-top: 150px;
+		margin-bottom: 250px;
+		margin-left:200px; 
+		margin-right:100px;
+		background-color: #0F9D58;
+	}
+	100% {
+		margin-top: 150px;
+		margin-bottom: 250px;
+		margin-left:100px;
+		margin-right:200px;
+		background-color: #4285F4;
+	}
+}
+.autoSquare{
+	width: 100px;
+	height: 100px;
+	margin-top: 150px;
+	margin-bottom: 250px;
+	margin-left:100px;
+	margin-right:200px;
+	background-color: #4285F4;
+	animation-name: squareMove;
+	animation-iteration-count: infinite;
+}
+#sq001{
+	animation-duration: 4s;
+}
+#sq002{
+	animation-duration: 2s;
+}
+#sq003{
+	animation-duration: 8s;
+}
+.squareContainer{
+	 display:inline-block;
+	 width: 33%;
+}
+.playSquare{
+	width: 100px;
+	height: 20px;
+	background-color:#4285F4;
+	transition: all 1s;
+	transition-timing-function: ease-out;
+}
+.playSquare:hover{
+	background-color: #DB4437;
+	border-top: 1px;
+	width: 400px;
+	height: 20px;
+}
+#canvas001{
+	width:100%;
+}

@@ -3,10 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Jamison</title>
+		<link href="./css/forPage1.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="jquery-3.5.1.js"></script>
 	</head>
 	<body>
-		<header style="height:80px;background-color:#F76369">
-			<b style="font-size:40px;width:30%;display:inline-block"><a href="index.html">HTML Practice</a></b>
+		<header>
+			<b><a href="index.html">HTML Practice</a></b>
 			<nav style="font-size:20px;display:inline-block">
 				<a href="page1.html">Link 1</a>
 				<a href="page2.html">Link 2</a>
@@ -15,17 +17,39 @@
 			</nav>
 		</header>
 		<main>
-			<h4  style="font-size:25px;">Colored Blocks</h4>
-				<div style="width:50px;height:100px;background-color:#FAD54D;display:inline-block">
+			<h3>Moving Squares</h3>
+			<div style="height:500px">
+				<div class="squareContainer">
+					<div id="sq001" class="autoSquare"></div>
 				</div>
-				<div style="width:50px;height:200px;background-color:#C1E5E1;display:inline-block">
+				<div class="squareContainer">
+					<div id="sq002" class="autoSquare"></div>
 				</div>
-				<div style="width:50px;height:150px;background-color:#8A4F80;display:inline-block">
+				<div class="squareContainer">
+					<div id="sq003" class="autoSquare"></div>
 				</div>
-				<div style="width:50px;height:110px;background-color:#F5D399;display:inline-block">
-				</div>
-				<div style="width:50px;height:80px;background-color:#DB5A98;display:inline-block">
-				</div>
+			</div>
+			<h3>Touch Square</h3>
+			<div id="bar001" class="playSquare"></div>
+			<div id="bar002" class="playSquare"></div>
+			<div id="bar003" class="playSquare"></div>
+			<div id="bar004" class="playSquare"></div>
+			<div id="bar005" class="playSquare"></div>
+			<h3>canvas</h3>
+			<canvas id="canvas001" width="1440" height="300" style="border:1px solid #000000"></canvas>
+			<script type="text/javascript">
+				var canvas001 = document.getElementById("canvas001").getContext("2d");
+				canvas001.fillStyle="#D4CDB0";
+				canvas001.fillRect(100, 100, 100, 100);
+			</script>
+			<h3>Keynes</h3>
+			<canvas id="canvas002" width="1920" height="1080" style="border:1px solid #000000;width:50%"></canvas>
+			<script type="text/javascript">
+				var canvas002 = document.getElementById("canvas002").getContext("2d");
+				var Keynes = new Image();
+				Keynes.src = "./images/Keynes.jpg";
+				canvas002.drawImage(keynes, 0, 0, 192, 108);
+			</script>
 		</main>
 		<footer style="height:80px;background-color:#000000; color:white">
 			License:<br/>
