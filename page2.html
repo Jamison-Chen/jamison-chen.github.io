@@ -2,51 +2,57 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Jamison</title>
-		<script type="text/javascript" src="jquery-3.5.1.js"></script>
-		<script src="./js/forPage2.js"></script>
 		<link href="./css/forPage2.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="./js/jquery-3.5.1.js"></script>
+		<script type="text/javascript" src="./js/forPage2.js"></script>
+		<script type="text/javascript" src="./js/header.js"></script>
 	</head>
 	<body>
-		<header>
-			<div>
-				<img src="./images/html5.svg" style="height:40%;margin-right: 5px" alt="This is logo."/>
-				<a href="index.html" id="webName">HTML Practice</a>
-			</div>
-			<nav>
-				<a href="index.html">Home</a>
-				<a href="page1.html">Link 1</a>
-				<a href="page2.html">Link 2</a>
-				<a href="page3.html">Link 3</a>
-			</nav>
-			<a href="https://www.google.com.tw/" target="_blank">
-				<img src="./images/google.svg" style="height:40%; margin-top: 18px" alt="This is logo."/>
-			</a>
-		</header>
 		<main>
-			<h3>Keynes in Different Opacity</h3>
+			<h3>Top 6 Best Poké Balls</h3>
 			<div class="imageContainer">
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic01"/>
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic02"/>
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic03"/>
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic04"/>
+				<div class="poke_ball_container">
+					<img src="./images/Poke_ball_01.png" class="pokeBall" id="pb001"/>
+					<h4>Nest ball</h4>
+				</div>
+				<div class="poke_ball_container">
+					<img src="./images/Poke_ball_02.png" class="pokeBall" id="pb002"/>
+					<h4>Net ball</h4>
+				</div>
+				<div class="poke_ball_container">
+					<img src="./images/Poke_ball_03.png" class="pokeBall" id="pb003"/>
+					<h4>Fast ball</h4>
+				</div>
+				<div class="poke_ball_container">
+					<img src="./images/Poke_ball_04.png" class="pokeBall" id="pb004"/>
+					<h4>Heavy ball</h4>
+				</div>
+				<div class="poke_ball_container">
+					<img src="./images/Poke_ball_05.png" class="pokeBall" id="pb005"/>
+					<h4>Timer ball</h4>
+				</div>
+				<div class="poke_ball_container">
+					<img src="./images/Poke_ball_06.png" class="pokeBall" id="pb006"/>
+					<h4>Friend ball</h4>
+				</div>
 			</div>
-			<h3>Click to Move Keynes!</h3>
+			<h3>Click to Move Phoenix!</h3>
 			<div class="imageContainer">
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic05"/>
+				<img src="./images/Phoenix.gif" class="pokemon" id="pkm_phoenix"/>
 			</div>
-			<h3>Growing Keynes</h3>
-			<input type="button" name="button" id="feedKeynes" value="Grow up!" class="button"/>
-			<input type="button" name="button" id="starveKeynes" value="Smaller!" class="button"/>
+			<h3>Feed Bulbasaur</h3>
+			<input type="button" name="button" id="feed" value="Grow up!" class="button"/>
+			<input type="button" name="button" id="starve" value="Smaller!" class="button"/>
 			<div class="imageContainer">
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic06" style="display:block; margin: auto;" />
+				<img src="./images/Bulbasaur.png" class="pokemon" id="pkm_bulbasaur"/>
 			</div>
-			<h3>Hiding Keynes</h3>
+			<h3>Hiding Pikachu</h3>
 			<div class="imageContainer">
-				<img src="./images/Keynes.jpg" class="KeynesPic" id="kPic07"/>
+				<img src="./images/Pikachu.png" class="pokemon" id="pkm_pikachu"/>
 			</div>
-			<input type="button" name="button" id="hideKeynes" value="Hide up!" class="button"/>
-			<input type="button" name="button" id="showKeynes" value="Show up!" class="button"/>
+			<input type="button" name="button" id="hideBtn" value="Hide up!" class="button"/>
+			<input type="button" name="button" id="showBtn" value="Show up!" class="button"/>
+			<a href="#"><div id="toTop">↑</div></a>
 		</main>
 		<footer>
 			License:<br/>
