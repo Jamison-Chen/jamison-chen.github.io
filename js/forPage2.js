@@ -8,50 +8,50 @@ $(document).ready(function(){
 	$("#pb001").hover(
 		function(){
 			$("#pb001").css("opacity", "1");
-			$(".imageContainer>div:nth-child(1)>h4").css("color", "#000000");
+			$(".imageContainer>div:nth-child(1)>h4").css("opacity", "100");
 		},function(){
 			$("#pb001").css("opacity", "0.5");
-			$(".imageContainer>div:nth-child(1)>h4").css("color", "#FFFFFF");
+			$(".imageContainer>div:nth-child(1)>h4").css("opacity", "0");
 		});
 	$("#pb002").hover(
 		function(){
 			$("#pb002").css("opacity", "1");
-			$(".imageContainer>div:nth-child(2)>h4").css("color", "#000000");
+			$(".imageContainer>div:nth-child(2)>h4").css("opacity", "100");
 		},function(){
 			$("#pb002").css("opacity", "0.5");
-			$(".imageContainer>div:nth-child(2)>h4").css("color", "#FFFFFF");
+			$(".imageContainer>div:nth-child(2)>h4").css("opacity", "0");
 		});
 	$("#pb003").hover(
 		function(){
 			$("#pb003").css("opacity", "1");
-			$(".imageContainer>div:nth-child(3)>h4").css("color", "#000000");
+			$(".imageContainer>div:nth-child(3)>h4").css("opacity", "100");
 		},function(){
 			$("#pb003").css("opacity", "0.5");
-			$(".imageContainer>div:nth-child(3)>h4").css("color", "#FFFFFF");
+			$(".imageContainer>div:nth-child(3)>h4").css("opacity", "0");
 		});
 	$("#pb004").hover(
 		function(){
 			$("#pb004").css("opacity", "1");
-			$(".imageContainer>div:nth-child(4)>h4").css("color", "#000000");
+			$(".imageContainer>div:nth-child(4)>h4").css("opacity", "100");
 		},function(){
 			$("#pb004").css("opacity", "0.5");
-			$(".imageContainer>div:nth-child(4)>h4").css("color", "#FFFFFF");
+			$(".imageContainer>div:nth-child(4)>h4").css("opacity", "0");
 		});
 	$("#pb005").hover(
 		function(){
 			$("#pb005").css("opacity", "1");
-			$(".imageContainer>div:nth-child(5)>h4").css("color", "#000000");
+			$(".imageContainer>div:nth-child(5)>h4").css("opacity", "100");
 		},function(){
 			$("#pb005").css("opacity", "0.5");
-			$(".imageContainer>div:nth-child(5)>h4").css("color", "#FFFFFF");
+			$(".imageContainer>div:nth-child(5)>h4").css("opacity", "0");
 		});
 	$("#pb006").hover(
 		function(){
 			$("#pb006").css("opacity", "1");
-			$(".imageContainer>div:nth-child(6)>h4").css("color", "#000000");
+			$(".imageContainer>div:nth-child(6)>h4").css("opacity", "100");
 		},function(){
 			$("#pb006").css("opacity", "0.5");
-			$(".imageContainer>div:nth-child(6)>h4").css("color", "#FFFFFF");
+			$(".imageContainer>div:nth-child(6)>h4").css("opacity", "0");
 		});
 });
 $(document).ready(function(){

@@ -32,7 +32,8 @@ a{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size: 20px;
-	color:#FFFFFF;
+	color:#000000;
+	opacity: 0;
 }
 #pkm_phoenix{
 	width: 20%;
