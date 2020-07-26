@@ -1,34 +1,58 @@
 #main{
 	width:100%;
-	height:1000px;
 	text-align: center;
-	margin-top: 90px;
-	margin-bottom: 60px;
+	margin-top: 0 auto;
 }
-#main>div{
+#post_list{
+	width:50%;
 	text-align: center;
-	margin: 0 auto;
-	padding-top: 1px;
-	width:70%;
-	height:1000px;
+	margin: 90px auto 30px auto;
+}
+#post_list>div{
+	text-align: center;
+	margin: 30px auto;
+	width:100%;
+	height:250px;
 	background-color: #FFFFFF;
 	border-radius: 15px;
 	box-shadow:0px 2px 5px 2px #AAAAAA;
+	opacity: 75%;
+	transition-property: opacity;
+	transition-duration: 1s;
 }
-#main>div>div{
-	box-sizing: border-box;
-	width:70px;
-	height:100px;
-	background-color: #EEEEEE;
-	margin: 0 auto;
-	margin-top:50px;
-	border-radius: 15px;
+#post_list>div:hover{
+	opacity: 100%;
+}
+.change_page{
+	width: 60px;
+	display: grid;
+	place-items:center;
+	opacity: 50%;
+	position: fixed;
+	transition-property: opacity width;
+	transition-duration: 100ms;
+}
+.change_page>img{
+	width:100%;
+}
+#next_page{
+	bottom: 40%;
+	left:80%;
+}
+#last_page{
+	bottom: 40%;
+	right:80%;
+	transform: rotate(180deg);
+}
+.change_page:hover{
+	opacity: 80%;
+	width: 65px
 }
 #contact_bar{
 	list-style-type: none;
 	position: fixed;
 	top: 40%;
-	right:0px;
+	right:-1px;
 }
 #contact_bar li{
 	margin: 2px 0px;
@@ -40,7 +64,7 @@
 	width:52px;
 	height:39px;
 	border-radius: 10px;
-	box-shadow:-5px 2px 15px 2px #AAAAAA;
+	box-shadow:-5px 2px 15px 2px #BBBBBB;
 	line-height: inherit;
 	vertical-align: middle;
 	transition-property: width height;
