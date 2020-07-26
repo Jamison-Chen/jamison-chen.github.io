@@ -15,13 +15,13 @@ document.writeln("	<div>");
 document.writeln("		<img src=\'./images/html5.svg\' id=\'webLogo\' alt=\'This is logo.\'/>");
 document.writeln("		<a href=\'index.html\' id=\'webName\'>HTML Practice</a>");
 document.writeln("	</div>");
-document.writeln("	<ol>");
+document.writeln("	<ol class=\'main_menu\'>");
 document.writeln("		<li><a href=\'index.html\'><div class=\'headerLinks\'>Home</div></a></li>");
 document.writeln("		<li><a href=\'page1.html\'><div class=\'headerLinks\'>Link1</div></a></li>");
 document.writeln("		<li><a href=\'page2.html\'><div class=\'headerLinks\'>Link2</div></a></li>");
 document.writeln("		<li><a href=\'page3.html\'><div class=\'headerLinks\'>Link3</div></a>");
-document.writeln("			<ol>");
-document.writeln("				<li><a href=\'page2.html\'><div class=\'sub_headerLinks\'>Link2</div></a></li>");
+document.writeln("			<ol class=\'sub_menu\'>");
+document.writeln("				<li><a href=\'test.html\'><div class=\'sub_headerLinks\'>test</div></a></li>");
 document.writeln("				<li><a href=\'page2.html\'><div class=\'sub_headerLinks\'>Link2</div></a></li>");
 document.writeln("			</ol>");
 document.writeln("		</li>");
@@ -32,6 +32,21 @@ document.writeln("	</a>");
 document.writeln("</header>");
 
 
+
+//########################################以下為次選單自動隱藏之JS部分
+document.writeln("<script>");
+document.writeln("$(function(){");
+document.writeln("	$(\'.sub_menu\').hide();");
+document.writeln("	$(\'header>ol>li\').hover(");
+document.writeln("		function(){");
+document.writeln("			$(this).find(\'.sub_menu\').slideDown(100);");
+document.writeln("		}, function(){");
+document.writeln("			$(this).find(\'.sub_menu\').slideUp(100);");
+document.writeln("		}");
+document.writeln("	);");
+document.writeln("});");
+document.writeln("</script>");
+//##################################################################
 //########################################以下為header自動隱藏之JS部分
 document.writeln("<script>");
 document.writeln("var elem = document.getElementById( \'thisIsHeader\' )");

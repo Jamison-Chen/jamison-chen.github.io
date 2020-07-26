@@ -10,6 +10,10 @@ body{
 	font-family: "微軟正黑體";
 	background-color: #EEEEEE;
 }
+::selection{
+  color:#000000;
+  background:#E8C40C;
+}
 header{
 	top:0px;
 	position: fixed;
@@ -67,7 +71,9 @@ header>ol>li{
 	width:20%;
 	margin-left: 1px;
 	margin-right: 1px;
+	float:left;
 	display:inline-block;
+	left: 0px;
 }
 header>ol>li>a{
 	line-height: 42px;
@@ -82,6 +88,7 @@ header>ol>li>a{
 	margin-top: 9px;
 	margin-left: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
 	background-color: #10132E;
 	clip-path: inset(0px 0px 0px 0px round 5px 5px 5px 5px);
 	transition-property: color background-color;
@@ -92,9 +99,9 @@ header>ol>li>a{
 	background-color: #FFFFFF;
 }
 header>ol>li>ol{
-	height: inherit;
+	height: 90%;
 	width:100%;
-	margin-top: auto;
+	margin:0px;
 	padding: 0px;
 	line-height: inherit;
 	text-align: center;
@@ -104,36 +111,42 @@ header>ol>li>ol>li{
 	height:70%;
 	width:100%;
 	display:block;
+	margin-bottom:1px;
 }
 header>ol>li>ol>li>a{
 	line-height: 42px;
 	text-align: center;
 	font-weight: 400;
 	color: #111111;
-	font-size:20px;
+	font-size:18px;
 }
 .sub_headerLinks{
 	height: 100%;
 	width: 100%;
 	margin:0px;
-	background-color: unset;
+	background-color: #FFFFFF;
+	opacity: 80%;
 	clip-path: inset(0px 0px 0px 0px round 5px 5px 5px 5px);
-	transition-property: color background-color;
-	transition-duration: 300ms;
+	transition-property: color background-color opacity;
+	transition-duration: 150ms;
 }
 .sub_headerLinks:hover{
 	color: #000000;
-	background-color: #FFFFFF;
+	background-color: #DDDDDD;
+	opacity: 100%;
 }
 #googleLogo{
 	height:40%;
 	margin-top: 18px;
-	margin-left:2px; 
+	margin-left:3px; 
 	transition-property: color background-color;
 	transition-duration: 100ms;
 }
 #googleLogo:hover{
 	height:50%;
-	margin-top: 15px;
+	margin-top: 16px;
 	margin-left:0px;
+}
+a{
+	text-decoration: none;
 }

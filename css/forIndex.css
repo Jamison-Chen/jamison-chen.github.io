@@ -12,9 +12,6 @@ main>h3{
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-a{
-	text-decoration: none;
-}
 @keyframes toTopButton{
 	50% {
 		bottom: 20px;

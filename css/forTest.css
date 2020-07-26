@@ -1,0 +1,15 @@
+html{
+}
+#main{
+	width:70%;
+	height:1000px;
+	background-color: #EEEEEE;
+	margin:0 auto;
+	text-align: center;
+}
+#main>div{
+	width:70%;
+	height:1000px;
+	background-color: #FFFFFF;
+	margin:0 auto;
+}
