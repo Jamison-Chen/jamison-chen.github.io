@@ -22,7 +22,10 @@ document.writeln("		<li><a href=\'page2.html\'><div class=\'headerLinks\'>Link2<
 document.writeln("		<li><a href=\'page3.html\'><div class=\'headerLinks\'>Link3</div></a>");
 document.writeln("			<ol class=\'sub_menu\'>");
 document.writeln("				<li><a href=\'test.html\'><div class=\'sub_headerLinks\'>test</div></a></li>");
-document.writeln("				<li><a href=\'page2.html\'><div class=\'sub_headerLinks\'>Link2</div></a></li>");
+document.writeln("				<li><a href=\'test.html\'><div class=\'sub_headerLinks\'>test</div></a></li>");
+document.writeln("				<li><a href=\'test.html\'><div class=\'sub_headerLinks\'>test</div></a></li>");
+document.writeln("				<li><a href=\'test.html\'><div class=\'sub_headerLinks\'>test</div></a></li>");
+document.writeln("				<li><a href=\'test.html\'><div class=\'sub_headerLinks\'>test</div></a></li>");
 document.writeln("			</ol>");
 document.writeln("		</li>");
 document.writeln("	</ol>");
@@ -33,20 +36,22 @@ document.writeln("</header>");
 
 
 
-//########################################以下為次選單自動隱藏之JS部分
+//########################################以下為「次選單」自動隱藏之JS部分
 document.writeln("<script>");
 document.writeln("$(function(){");
 document.writeln("	$(\'.sub_menu\').hide();");
 document.writeln("	$(\'header>ol>li\').hover(");
 document.writeln("		function(){");
-document.writeln("			$(this).find(\'.sub_menu\').slideDown(100);");
+document.writeln("			$(this).find(\'.sub_menu\').stop(false,false).slideDown(100);");
 document.writeln("		}, function(){");
-document.writeln("			$(this).find(\'.sub_menu\').slideUp(100);");
+document.writeln("			$(this).find(\'.sub_menu\').stop(false,false).slideUp(100);");
 document.writeln("		}");
 document.writeln("	);");
 document.writeln("});");
 document.writeln("</script>");
 //##################################################################
+
+
 //########################################以下為header自動隱藏之JS部分
 document.writeln("<script>");
 document.writeln("var elem = document.getElementById( \'thisIsHeader\' )");

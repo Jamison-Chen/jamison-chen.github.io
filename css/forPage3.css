@@ -1,54 +1,77 @@
+body::-webkit-scrollbar {
+    display: none;
+}
 #main{
 	width:100%;
+	height: 63.5vh;
 	text-align: center;
-	margin-top: 0 auto;
+	margin-top: 0;
 }
 #post_list{
-	width:50%;
+	width:100%;
 	text-align: center;
-	margin: 90px auto 30px auto;
+	margin: 26vh auto 10vh 20vw;
+	overflow: visible;
+	display: block;
+	white-space: nowrap;
+	list-style-type: none;
 }
-#post_list>div{
+#post_list>li{
+	width:30%;
+	margin: 30px 20px;
+	display: inline-block;
+}
+#post_list>li div{
 	text-align: center;
-	margin: 30px auto;
 	width:100%;
 	height:250px;
 	background-color: #FFFFFF;
 	border-radius: 15px;
-	box-shadow:0px 2px 5px 2px #AAAAAA;
+	box-shadow:0px 5px 5px 2px #AAAAAA;
 	opacity: 75%;
+	display: inline-block;
 	transition-property: opacity;
 	transition-duration: 1s;
 }
-#post_list>div:hover{
+#post_list div:hover{
 	opacity: 100%;
 }
+#post_list h3{
+	color: #000000;
+}
 .change_page{
-	width: 60px;
-	display: grid;
-	place-items:center;
-	opacity: 50%;
+	height: 50px;
+	width: 50px;
+	opacity: 80%;
 	position: fixed;
-	transition-property: opacity width;
+	z-index: 10;
+	text-align: left;
+	overflow:hidden;
+	transition-property: opacity width height;
 	transition-duration: 100ms;
 }
 .change_page>img{
-	width:100%;
+	margin: 0;
+	height:inherit;
+	display: inline-block;
+	float: left;
 }
 #next_page{
-	bottom: 40%;
-	left:80%;
+	bottom: 50vh;
+	left:90%;
 }
 #last_page{
-	bottom: 40%;
-	right:80%;
+	bottom: 50vh;
+	right:95%;
 	transform: rotate(180deg);
 }
 .change_page:hover{
-	opacity: 80%;
-	width: 65px
+	opacity: 100%;
+	width: 92px;
+	height: 55px;
 }
 #contact_bar{
+	z-index: 10;
 	list-style-type: none;
 	position: fixed;
 	top: 40%;
@@ -87,43 +110,39 @@
 	height:80%;
 }
 #my_github_page{
-	background-color:#000;
+	background-color:#000000;
 }
 #my_github_page>img{
 	height:80%;
 }
-@keyframes toTopButton{
-	50% {
-		bottom: 20px;
-	}
-	100% {
-		bottom: 10px;
-	}
-}
-#toTop{
-	height: 45px;
-	width: 45px;
-	text-align: center;
-	line-height: 45px;
-	background-color: #000000;
-	color:#444444;
-	opacity: 50%;
-	clip-path: circle(45% at 50% 50%);
-	transition-property: opacity color;
-	transition-duration: 1s;
-	display:block;
+#div_gradient_left{
+	width:30%;
+	height: 100vh;
 	position: fixed;
-	bottom: 10px;
-	right:10px;
-	animation-name: toTopButton;
-	animation-iteration-count: infinite;
-	animation-duration: 5s;
+	top:0;
+	left:0;
+	z-index: 0;
+	background: linear-gradient(0deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
+	background: -moz-linear-gradient(0deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
+	background: -webkit-linear-gradient(0deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
+	background: -o-linear-gradient(0deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
 }
-#toTop:hover{
-	opacity: 99%;
-	color: #ffffff;
+#div_gradient_right{
+	width:30%;
+	height: 100vh;
+	position: fixed;
+	top:0;
+	right:0;
+	z-index: 0;
+	background: linear-gradient(180deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
+	background: -moz-linear-gradient(180deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
+	background: -webkit-linear-gradient(180deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
+	background: -o-linear-gradient(180deg, rgba(238, 238, 238, 1)0%, rgba(238, 238, 238, 0)100%);
 }
 footer{
+	z-index: 10;
+	position: fixed;
+	width:100%;
 	height:80px;
 	background-color:#000000;
 	color:white;

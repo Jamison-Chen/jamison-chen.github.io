@@ -10,6 +10,7 @@ body{
 	font-family: "微軟正黑體";
 	background-color: #EEEEEE;
 }
+/*反白文字*/
 ::selection{
   color:#000000;
   background:#E8C40C;
