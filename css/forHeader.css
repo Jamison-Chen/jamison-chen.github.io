@@ -1,153 +1,190 @@
-html{
-	scroll-behavior: smooth;	//for PC
+html {
+    scroll-behavior: smooth;
+    cursor: default;
 }
-body{
-	scroll-behavior: smooth;	//for mobile phone
-	margin-top: 0px;
-	margin-left: 0px;
-	margin-bottom: 0px;
-	margin-right: 0px;
-	font-family: "微軟正黑體";
-	background-color: #EEEEEE;
+
+body {
+    scroll-behavior: smooth;
+    margin: 0px;
+    font-family: "微軟正黑體";
+    background-color: #fefefe;
 }
+
+
 /*反白文字*/
-::selection{
-  color:#000000;
-  background:#E8C40C;
+
+::selection {
+    color: #000000;
+    background: #ffae00;
 }
-header{
-	top:0px;
-	position: fixed;
-	height:60px;
-	width: 100%;
-	background-color:#10132E;
-	z-index: 10;
-	border-bottom-style:solid;
-	border-width:0.5px;
-	border-color: #000000;
-	box-shadow: 0px 0px 5px 1px #888888;
-}
-header>div{
-	height: inherit;
-	width: 50%;
-	margin-top: 7px;
-	margin-left: 10px;
-	margin-right: 10px;
-	text-align: center;
-	line-height: inherit;
-	vertical-align: top;
-	display:inline-block;
-}
-#webLogo{
-	height:60%;
-	margin-right: 5px;
-	margin-top: 5px;
-	line-height: inherit;
-	vertical-align: top;
-}
-#webName{
-	//margin-top: 8px; no effect
-	font-weight: 1000;
-	color: #EEEEEE;
-	font-size:32px;
-}
-header>ol{
-	height: inherit;
-	width:35%;
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-left: 3%;
-	margin-right: 3%;
-	padding: 0px;
-	line-height: inherit;
-	text-align: center;
-	vertical-align: top;
-	display:inline-block;
-}
-header ol{
-	list-style-type: none;
-}
-header>ol>li{
-	height: inherit;
-	width:20%;
-	margin-left: 1px;
-	margin-right: 1px;
-	float:left;
-	display:inline-block;
-	left: 0px;
-}
-header>ol>li>a{
-	line-height: 42px;
-	text-align: center;
-	font-weight: 400;
-	color: #FFFFFF;
-	font-size:20px;
-}
-.headerLinks{
-	height: 70%;
-	width: 100%;
-	margin-top: 9px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #10132E;
-	clip-path: inset(0px 0px 0px 0px round 5px 5px 5px 5px);
-	transition-property: color background-color;
-	transition-duration: 300ms;
-}
-.headerLinks:hover{
-	color: #000000;
-	background-color: #FFFFFF;
-}
-header>ol>li>ol{
-	height: 90%;
-	width:100%;
-	margin:0px;
-	padding: 0px;
-	line-height: inherit;
-	text-align: center;
-	display:block;
-}
-header>ol>li>ol>li{
-	height:70%;
-	width:100%;
-	display:block;
-	margin-bottom:1px;
-}
-header>ol>li>ol>li>a{
-	line-height: 42px;
-	text-align: center;
-	font-weight: 400;
-	color: #111111;
-	font-size:18px;
-}
-.sub_headerLinks{
-	height: 100%;
-	width: 100%;
-	margin:0px;
-	background-color: #FFFFFF;
-	opacity: 80%;
-	clip-path: inset(0px 0px 0px 0px round 5px 5px 5px 5px);
-	transition-property: color background-color opacity;
-	transition-duration: 150ms;
-}
-.sub_headerLinks:hover{
-	color: #000000;
-	background-color: #DDDDDD;
-	opacity: 100%;
-}
-#googleLogo{
-	height:40%;
-	margin-top: 18px;
-	margin-left:3px; 
-	transition-property: color background-color;
-	transition-duration: 100ms;
-}
-#googleLogo:hover{
-	height:50%;
-	margin-top: 16px;
-	margin-left:0px;
-}
-a{
-	text-decoration: none;
+
+
+/* header {
+    top: 0px;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background-color: #10132E;
+    z-index: 10;
+    border-bottom-style: solid;
+    border-width: 0.5px;
+    border-color: #000000;
+    box-shadow: 0px 0px 5px 1px #888888;
+} */
+
+
+/* header>div {
+    height: inherit;
+    width: 50%;
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: inherit;
+    vertical-align: top;
+    display: inline-block;
+} */
+
+
+/* #webLogo {
+    height: 60%;
+    margin-right: 5px;
+    margin-top: 5px;
+    line-height: inherit;
+    vertical-align: top;
+} */
+
+
+/* #webName {
+    margin-top: 8px;
+    font-weight: 1000;
+    color: #EEEEEE;
+    font-size: 32px;
+} */
+
+
+/* header>ol {
+    height: inherit;
+    width: 35%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 0px;
+    line-height: inherit;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+} */
+
+
+/* header ol {
+    list-style-type: none;
+} */
+
+
+/* header>ol>li {
+    height: inherit;
+    width: 20%;
+    margin-left: 1px;
+    margin-right: 1px;
+    float: left;
+    display: inline-block;
+    left: 0px;
+} */
+
+
+/* header>ol>li>a {
+    line-height: 42px;
+    text-align: center;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 20px;
+} */
+
+
+/* .headerLinks {
+    height: 70%;
+    width: 100%;
+    margin-top: 9px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-color: #10132E;
+    clip-path: inset(0px 0px 0px 0px round 5px 5px 5px 5px);
+    transition-property: color background-color;
+    transition-duration: 300ms;
+} */
+
+
+/* .headerLinks:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+} */
+
+
+/* header>ol>li>ol {
+    height: 90%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    line-height: inherit;
+    text-align: center;
+    display: block;
+} */
+
+
+/* header>ol>li>ol>li {
+    height: 70%;
+    width: 100%;
+    display: block;
+    margin-bottom: 1px;
+} */
+
+
+/* header>ol>li>ol>li>a {
+    line-height: 42px;
+    text-align: center;
+    font-weight: 400;
+    color: #111111;
+    font-size: 18px;
+} */
+
+
+/* .sub_headerLinks {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: #FFFFFF;
+    opacity: 80%;
+    clip-path: inset(0px 0px 0px 0px round 5px 5px 5px 5px);
+    transition-property: color background-color opacity;
+    transition-duration: 150ms;
+} */
+
+
+/* .sub_headerLinks:hover {
+    color: #000000;
+    background-color: #DDDDDD;
+    opacity: 100%;
+} */
+
+
+/* #googleLogo {
+    height: 40%;
+    margin-top: 18px;
+    margin-left: 3px;
+    transition-property: color background-color;
+    transition-duration: 100ms;
+} */
+
+
+/* #googleLogo:hover {
+    height: 50%;
+    margin-top: 16px;
+    margin-left: 0px;
+} */
+
+a {
+    text-decoration: none;
 }

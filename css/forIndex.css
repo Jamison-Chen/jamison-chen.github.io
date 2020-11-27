@@ -1,50 +1,55 @@
-main{
-	padding-top: 60px;
-	margin-left: 10px;
-	margin-right: 10px;
+main {
+    /* padding-top: 60px; */
+    margin-left: 3%;
+    margin-right: 3%;
 }
-main>h3{
-	font-size:25px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+
+main>h3 {
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-@keyframes toTopButton{
-	50% {
-		bottom: 20px;
-	}
-	100% {
-		bottom: 10px;
-	}
+
+@keyframes toTopButton {
+    50% {
+        bottom: 20px;
+    }
+    100% {
+        bottom: 10px;
+    }
 }
-#toTop{
-	height: 45px;
-	width: 45px;
-	text-align: center;
-	line-height: 45px;
-	background-color: #000000;
-	color:#444444;
-	opacity: 50%;
-	clip-path: circle(45% at 50% 50%);
-	transition-property: opacity color;
-	transition-duration: 1s;
-	display:block;
-	position: fixed;
-	bottom: 10px;
-	right:10px;
-	animation-name: toTopButton;
-	animation-iteration-count: infinite;
-	animation-duration: 5s;
+
+#toTop {
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: #000000;
+    color: #444444;
+    opacity: 50%;
+    clip-path: circle(45% at 50% 50%);
+    transition-property: opacity color;
+    transition-duration: 1s;
+    display: block;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    animation-name: toTopButton;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
 }
-#toTop:hover{
-	opacity: 99%;
-	color: #ffffff;
+
+#toTop:hover {
+    opacity: 99%;
+    color: #ffffff;
 }
-footer{
-	height:80px;
-	background-color:#000000;
-	color:white;
+
+footer {
+    height: 80px;
+    background-color: #000000;
+    color: white;
 }
