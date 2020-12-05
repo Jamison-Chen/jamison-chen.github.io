@@ -3,72 +3,90 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/forIndex.css" rel="stylesheet" type="text/css">
     <link href="./css/forHeader.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="./js/jquery-3.5.1.js"></script>
+    <title>AnotherHomePage</title>
     <!--<script type="text/javascript" src="./js/forIndex.js"></script>-->
     <!-- <script type="text/javascript" src="./js/header.js"></script> -->
 </head>
 
 <body>
-    <main>
-        <div style="padding-top:20px">
+    <div class="main">
+        <div id="fast-jump" style="padding-top:20px">
             <a href="./index.html" style="padding-right: 30px;display:inline-block">Jump to Template</a>
             <a href="./profile_form.html" style="padding-right:30px;display:inline-block">Jump to Profile Form</a>
         </div>
         <!-- <p><a href="#histogram" style="padding-right: 30px;">Jump to Histogram</a></p> -->
-        <h1 style="font-size:25px;">Try Different Languages</h1>
+        <p class="paragraph-title">HTML Style - CSS</p>
+        <div class="paragraph-content" id="special-block">
+            <img src="./images/css.svg" alt="" class="content-img">
+            <div class="content-text">
+                <div id="special-font-line">CSS stands for Cascadeing Style Sheets.</div>
+                <div id="small-line">CSS saves a lot of work.</div>
+                <div id="green-line">I can control the layout of <span>multiple web pages </span>all at once.</div>
+            </div>
+        </div>
+        <p class="paragraph-title">Try Different Languages</p>
         This is English.<br/> 這是中文
         <br/>
-        <h2 style="font-size:25px;">Split Line</h2>
+        <p class="paragraph-title">Split Line</p>
         <hr><br/>
-        <h2 style="font-size:25px;">Paragraphs & Lines</h2>
-        This is English.<br/> This is English.<br/>
+        <p class="paragraph-title">Paragraphs & Lines</p>
+        This is a block.<br/> This is a block.<br/>
         <p>This is a block.</p>
         <p>This is a block.</p>
+        <br/>
         <span>This is one line.</span>
         <span>This is one line.</span>
         <span style="display:block;">This is one line.</span>
         <span style="display:block;">This is one line.</span>
         <p style="display:inline;">This is a block.</p>
         <p style="display:inline;">This is a block.</p>
-        <h2 style="font-size:25px;">Introducing Different Tags</h2>
-        <b>This is a bald-print line.</b><br/>
-        <strong>This is a bald-print line.</strong><br/>
-        <i>This is a italic-print line.</i><br/>
-        <em>This is a italic-print line.</em><br/>
-        <del>This is a del tag.</del><br/>
-        <ins>This is a ins tag.</ins><br/>
-        <u>This is a u tag.</u><br/>
-        <mark>This is a mark tag.</mark><br/>
-        <big>This is a big tag.<big>This is a big tag in a big tag.</big></big><br/>
-        <small>This is a small tag.<small>This is a small tag in a small tag.</small></small><br/>
-        <big>C</big><sub>2</sub><sup>6</sup><br/>
-        <xmp><b>Show html</b></xmp><br/> This is a line of code: <code>for each in aList:</code><br/> This is a line of keyboard command: <kbd>pip install numpy</kbd><br/>
-        <h2 style="font-size:25px;">Blocks</h2>
+
+        <p class="paragraph-title">Introducing Different Tags</p>
+        <div class="paragraph-content">
+            <b>This is a bald-print line.</b><br/>
+            <strong>This is a bald-print line.</strong><br/>
+            <i>This is a italic-print line.</i><br/>
+            <em>This is a italic-print line.</em><br/>
+            <del>This is a del tag.</del><br/>
+            <ins>This is a ins tag.</ins><br/>
+            <u>This is a u tag.</u><br/>
+            <mark>This is a mark tag.</mark><br/>
+            <big>This is a big tag.<big>This is a big tag in a big tag.</big></big><br/>
+            <small>This is a small tag.<small>This is a small tag in a small tag.</small></small><br/>
+            <big>C</big><sub>2</sub><sup>6</sup><br/>
+            <xmp><b>Show html</b></xmp>
+            <div>This is a line of code:</div>
+            <code>for each in aList:</code>
+            <div>This is a line of keyboard command:</div>
+            <kbd>pip install numpy</kbd>
+        </div>
+
+        <p class="paragraph-title">Blocks</p>
         <div style="width:720px;height:100px;background-color:#F2FFBC;font-size:20px">
             <b>This is a bald-print line.</b><br/>
             <i>This is a italic-print line.</i><br/>
         </div>
-        <div style="width:1080px;background-color:#C1E5E1">
-            <ins>This is a line.</ins><br/>
-            <u>This is a line.</u><br/>
+
+        <p class="paragraph-title">Histogram</p>
+        <div style="text-align: center;">
+            <div class="part-of-histogram" style="height:20px;background-color:#F7DCF0;"></div>
+            <div class="part-of-histogram" style="height:100px;background-color:#FAD54D;"></div>
+            <div class="part-of-histogram" style="height:200px;background-color:#C1E5E1;"></div>
+            <div class="part-of-histogram" style="height:150px;background-color:#8A4F80;"></div>
+            <div class="part-of-histogram" style="height:110px;background-color:#F5D399;"></div>
+            <div class="part-of-histogram" style="height:80px;background-color:#DB5A98;"></div>
+            <div class="part-of-histogram" style="height:60px;background-color:#DAC3A1;"></div>
+            <div class="part-of-histogram" style="height:50px;background-color:#320D38;"></div>
+            <div class="part-of-histogram" style="height:45px;background-color:#6B1738;"></div>
+            <div class="part-of-histogram" style="height:40px;background-color:#D31B35;"></div>
         </div>
-        <h2 id="histogram" style="font-size:25px;">Histogram</h2>
-        <div align="center">
-            <div style="width:5%;height:20px;background-color:#F7DCF0;display:inline-block"></div>
-            <div style="width:5%;height:100px;background-color:#FAD54D;display:inline-block"></div>
-            <div style="width:5%;height:200px;background-color:#C1E5E1;display:inline-block"></div>
-            <div style="width:5%;height:150px;background-color:#8A4F80;display:inline-block"></div>
-            <div style="width:5%;height:110px;background-color:#F5D399;display:inline-block"></div>
-            <div style="width:5%;height:80px;background-color:#DB5A98;display:inline-block"></div>
-            <div style="width:5%;height:60px;background-color:#DAC3A1;display:inline-block"></div>
-            <div style="width:5%;height:50px;background-color:#320D38;display:inline-block"></div>
-            <div style="width:5%;height:45px;background-color:#6B1738;display:inline-block"></div>
-            <div style="width:5%;height:40px;background-color:#D31B35;display:inline-block"></div>
-        </div>
-        <h2 style="font-size:25px;">Table</h2>
-        <table border="1" align="center" style="width:70%">
+
+        <p class="paragraph-title">Table</p>
+        <table border="1" align="center">
             <thead>
                 <tr>
                     <th style="width:15%">Date</th>
@@ -102,14 +120,14 @@
                 </tr>
             </tfoot>
         </table>
+
         <h2 style="font-size:25px;">Try iframe</h2>
         <iframe style="display:inline-block;width:560px;height:315px" src="https://www.youtube.com/embed/GuqY5OViunk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe style="display:inline-block;width:560px;height:315px" src="https://www.facebook.com/tanpingiong/"></iframe>
         <a href="#">
             <div id="toTop">↑</div>
         </a>
-    </main>
-    <footer>
+    </div>
+    <div class="footer">
         <ul style="list-style-type:disc;">
             <li>
                 <a href="mailto:jamisonforeverandever@gmail.com?subject=Greetings&body=Hello, Jamison" style="color:white" target="_blank">
@@ -119,7 +137,7 @@
                 <address>Address: Taipei, Taiwan</address>
             </li>
         </ul>
-    </footer>
+    </div>
 </body>
 
 </html>

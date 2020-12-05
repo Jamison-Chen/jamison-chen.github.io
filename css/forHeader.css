@@ -1,21 +1,22 @@
 html {
     scroll-behavior: smooth;
     cursor: default;
+    height: 100%;
 }
 
 body {
     scroll-behavior: smooth;
     margin: 0px;
-    font-family: "微軟正黑體";
-    background-color: #fefefe;
+    font-family: "微軟正黑體", sans-serif;
+    background-color: #fefefa;
 }
 
 
 /*反白文字*/
 
 ::selection {
-    color: #000000;
-    background: #ffae00;
+    color: #fff;
+    background: #888;
 }
 
 

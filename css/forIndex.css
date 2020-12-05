@@ -1,17 +1,67 @@
-main {
+.main {
     /* padding-top: 60px; */
     margin-left: 3%;
     margin-right: 3%;
 }
 
-main>h3 {
-    font-size: 25px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.paragraph-title {
+    font-size: 1.6em;
+    font-weight: 1000;
+}
+
+.paragraph-content {
+    font-size: 1em;
+}
+
+#special-block {
+    height: 15vh;
+}
+
+.content-img {
+    float: left;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.content-text {
+    height: 100%;
+}
+
+.content-text div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: auto;
+}
+
+#special-font-line {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#green-line {
+    color: #00dd00;
+}
+
+#green-line span {
+    color: #000000;
+}
+
+#green-line span:hover {
+    color: #00dd00;
+}
+
+#small-line {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.part-of-histogram {
+    width: 5%;
+    display: inline-block;
+}
+
+table {
+    width: 70%;
+    border: 3px #000000 solid;
 }
 
 @keyframes toTopButton {
@@ -33,7 +83,7 @@ main>h3 {
     opacity: 50%;
     clip-path: circle(45% at 50% 50%);
     transition-property: opacity color;
-    transition-duration: 1s;
+    transition-duration: 0.3s;
     display: block;
     position: fixed;
     bottom: 10px;
@@ -48,8 +98,9 @@ main>h3 {
     color: #ffffff;
 }
 
-footer {
-    height: 80px;
-    background-color: #000000;
-    color: white;
+.footer {
+    background-color: #333;
+    color: #eee;
+    padding-top: 5px;
+    padding-bottom: 20px;
 }
