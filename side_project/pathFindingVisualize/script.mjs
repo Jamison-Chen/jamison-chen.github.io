@@ -39,6 +39,11 @@ function dijkstra(src, dest, unsolved) {
                 // setTimeout(() => {
                 document.getElementById(`(${w[0]},${w[1]})`).style.backgroundColor = exploredColor;
                 // }, 800)
+            } else {
+                if (grid[w[0]][w[1]].isDest) {
+                    resolve({ shortestD: currentDistance, shortestPath: currentPath });
+                    return; //This return is used for break the recursive loop.
+                }
             }
         } else {
             resolve({ shortestD: currentDistance, shortestPath: currentPath });
