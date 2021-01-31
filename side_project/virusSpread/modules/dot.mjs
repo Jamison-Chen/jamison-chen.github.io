@@ -12,6 +12,7 @@ export class Dot {
         this.infectdDay = 0;
         this.recoverDay = settings.recoverDay;
         this.isRecorded = false;
+        this.hasImmuneColor = false;
     }
     move(direction) {
         this.setDirection(direction)

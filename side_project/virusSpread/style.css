@@ -64,7 +64,24 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 10px 0;
+}
+
+.scrl-bar {
+    appearance: none;
+    height: 1px;
+    background: #fff;
+    outline: none;
+    margin: 0 0 10px 0;
+}
+
+.scrl-bar::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 label {

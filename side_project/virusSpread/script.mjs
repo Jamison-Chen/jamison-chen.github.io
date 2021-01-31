@@ -15,6 +15,7 @@ let vpMultiplier = 2;
 let recoverMultiplier = 3;
 let initInfectedNum = 2;
 let waitTime = 100;
+let infectedPossibility = 80;
 controlPanelSetUp();
 
 
@@ -45,6 +46,8 @@ function controlPanelSetUp() {
     setSlider("energy-scrl-bar", 0, 500, "energy");
 
     setSlider("virus-power-scrl-bar", 1, 5, "vpMultiplier");
+
+    setSlider("infected-possibility-scrl-bar", 0, 100, "infectedPossibility");
 
     setSlider("recover-day-scrl-bar", 1, 10, "recoverMultiplier");
 
@@ -142,7 +145,10 @@ function initDotObj(num) {
         });
         allDotObjs.push(dotObj);
         initDotDOM(dotObj, i);
-        if (i < initInfectedNum) getInfected(dotObj, i);
+        if (i < initInfectedNum) {
+            getInfected(dotObj, i);
+            dotObj.isRecorded = true;
+        }
     }
 }
 
@@ -175,9 +181,9 @@ function getInfected(aDotObj, i) {
 
 function updateChart(day, newRecord, infectedNum, hasGotInfected) {
     chart.data.labels.push(day);
-    chart.data.datasets[0].data.push(newRecord / allDotObjs.length);
-    chart.data.datasets[1].data.push(infectedNum / allDotObjs.length);
-    chart.data.datasets[2].data.push(hasGotInfected / allDotObjs.length);
+    chart.data.datasets[0].data.push(newRecord / population);
+    chart.data.datasets[1].data.push(infectedNum / population);
+    chart.data.datasets[2].data.push(hasGotInfected / population);
     chart.update();
 }
 
@@ -229,9 +235,10 @@ function moveAllDots() {
     infectionRecord();
     for (let i = 0; i < allDotObjs.length; i++) {
         moveDot(i);
-        if (allDotObjs[i].immune) {
-            document.getElementById(`Item${i}`).style.backgroundColor = "#00F";
-            document.getElementById(`Dot${i}`).style.backgroundColor = "rgba(0, 0, 200, 0.1)";
+        if (allDotObjs[i].immune && !allDotObjs[i].hasImmuneColor) {
+            document.getElementById(`Item${i}`).style.backgroundColor = "#444";
+            document.getElementById(`Dot${i}`).style.backgroundColor = "rgba(100, 100, 100, 0.1)";
+            allDotObjs[i].hasImmuneColor = true;
         }
     }
     if (!stopSimulation) {
@@ -264,7 +271,11 @@ function moveDot(i) {
             // if (Math.random() <= (virusPower / Math.pow(dist, 2))) {
             //     allDotObjs[i].getInfected();
             // }
-            if (dist <= virusPower) getInfected(allDotObjs[i], i);
+            if (dist <= virusPower) {
+                if ((Math.random() * 100) <= infectedPossibility) {
+                    getInfected(allDotObjs[i], i);
+                }
+            }
             // else if (dist <= (socialDistance * 2)) {
             //     // allDotObjs[i].energy = energy / 2;
             //     allDotObjs[i].move(Math.atan(vector[1] / vector[0]));
