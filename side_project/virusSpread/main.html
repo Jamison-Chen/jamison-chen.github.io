@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link href="/css/forAll.css" rel="stylesheet" type="text/css">
+    <script type="module" src="./script.mjs" defer></script>
+    <title>VirusSpreadSimulator</title>
+</head>
+
+<body>
+    <div id="main" style="width:100vw; height:100vh; position:fixed; top:0%; left:0%;"></div>
+    <div class="side-bar">
+        <div class="settings">
+            <div class="info">
+                <label for="population">Population</label><output></output>
+            </div>
+            <input type="range" name="population" id="population-scrl-bar" class="scrl-bar">
+
+            <div class="info">
+                <label for="energy">Energy</label><output></output>
+            </div>
+            <input type="range" name="energy" id="energy-scrl-bar" class="scrl-bar">
+
+            <div class="info">
+                <label for="initialInfectedNum">Initial Infected</label><output></output>
+            </div>
+            <input type="range" name="initialInfectedNum" id="initial-infected-num-scrl-bar" class="scrl-bar">
+
+            <div class="info">
+                <label for="virusPower">Virus Power</label><output></output>
+            </div>
+            <input type="range" name="virusPower" id="virus-power-scrl-bar" class="scrl-bar">
+
+            <div class="info">
+                <label for="recoverDay">Recover Day</label><output></output>
+            </div>
+            <input type="range" name="recoverDay" id="recover-day-scrl-bar" class="scrl-bar">
+
+            <div class="info">
+                <label for="simulationSpeed">Wait Time</label><output></output>
+            </div>
+            <input type="range" name="simulationSpeed" id="wait-time-scrl-bar" class="scrl-bar">
+
+            <div class="btns">
+                <div id="simulate-btn" class="start-simulate-btn"></div>
+                <div id="stop-btn"></div>
+                <a href="../home.html" style="color: #fff;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                </a>
+                <a href="/index.html" style="color: #fff;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                        <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                        <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div id="chart-div">
+            <canvas id="myChart" height="300"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
