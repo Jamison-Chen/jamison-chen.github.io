@@ -38,6 +38,17 @@ body {
     }
 }
 
+.part-of-path {
+    color: #999;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+.part-of-path:hover {
+    text-decoration: none;
+    color: #888;
+}
+
 
 /* header {
     top: 0px;

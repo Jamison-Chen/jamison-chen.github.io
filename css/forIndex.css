@@ -6,7 +6,7 @@
     right: 99%;
     top: 0%;
     height: 100vh;
-    width: 100%;
+    width: 30vw;
     border-radius: 60px;
 }
 
@@ -16,9 +16,25 @@
     opacity: 100%;
 }
 
-#greetings {
-    font-size: 1.5vw;
-    color: aliceblue;
+#profile-tab>div {
+    height: 100vh;
+    margin: 0 1.5vw;
+}
+
+#profile-info {
+    color: #FFF;
+}
+
+#name {
+    font-size: 1.2vw;
+    margin: 10px auto;
+}
+
+#live-place,
+#education {
+    font-size: 0.8vw;
+    font-weight: 100;
+    margin: 5px 0;
 }
 
 @keyframes profile_slide_out {
