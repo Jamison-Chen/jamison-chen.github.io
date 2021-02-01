@@ -7,7 +7,10 @@ let day;
 let newRecord;
 let ctx;
 let chart;
-
+let mode;
+let goToCenterRate = 5;
+addSelectModeEL()
+checkSelectMode();
 
 let population = 400;
 let energy = 50;
@@ -25,6 +28,44 @@ let recoverDay;
 let infectedNum;
 let hasGotInfected;
 
+function addSelectModeEL() {
+    let allModes = document.getElementsByClassName("mode")
+    for (let i = 0; i < allModes.length; i++) {
+        allModes[i].addEventListener("click", e => {
+            mode = `${allModes[i].firstElementChild.innerText}`;
+            for (let j = 0; j < allModes.length; j++) {
+                if (j != i) {
+                    allModes[j].style.textShadow = "";
+                } else {
+                    allModes[j].style.textShadow = "0px 0px 10px #fff, 0px 0px 10px #fff";
+                }
+            }
+            checkSelectMode();
+        });
+    }
+    document.getElementById("pull-up-btn").addEventListener("click", e => {
+        document.getElementById("select-mode-page").style.top = "-100%";
+        document.getElementById("pull-up-btn").style.bottom = "-10%";
+        document.getElementById("pull-down-btn").style.top = "0%";
+    });
+    document.getElementById("pull-down-btn").addEventListener("click", e => {
+        document.getElementById("select-mode-page").style.top = "0%";
+        document.getElementById("pull-up-btn").style.bottom = "10%";
+        document.getElementById("pull-down-btn").style.top = "-10%";
+    });
+    setSlider("go-rate-scrl-bar", 1, 100, "goToCenterRate");
+}
+
+function checkSelectMode() {
+    if (mode) {
+        document.getElementById("pull-up-btn").style.bottom = "10%";
+        // only for look
+        initCenterDiv();
+    } else {
+        document.getElementById("pull-up-btn").style.bottom = "-10%";
+    }
+}
+
 function setSlider(elementId, minVal, maxVal, targetVar) {
     document.getElementById(elementId).min = minVal;
     document.getElementById(elementId).max = maxVal;
@@ -35,6 +76,23 @@ function setSlider(elementId, minVal, maxVal, targetVar) {
         document.getElementById(elementId).previousElementSibling.children.item(1).value =
             document.getElementById(elementId).value;
     });
+}
+
+function initCenterDiv() {
+    if (mode == "center") {
+        let centerDiv = document.createElement("div");
+        document.getElementById("main").appendChild(centerDiv);
+        centerDiv.className = "center";
+        centerDiv.id = "center";
+        centerDiv.style.height = "10vh";
+        centerDiv.style.width = "10vw";
+        centerDiv.style.position = "absolute";
+        centerDiv.style.top = "45%";
+        centerDiv.style.left = "45%";
+        centerDiv.style.border = "1px solid #fff";
+    } else {
+        document.getElementById("main").removeChild(document.getElementById("center"));
+    }
 }
 
 function controlPanelSetUp() {
@@ -57,8 +115,6 @@ function controlPanelSetUp() {
 
     document.getElementById("simulate-btn").addEventListener("click", toSetUp);
 }
-
-
 
 function toSetUp() {
     let myNode = document.getElementById("main");
@@ -126,6 +182,7 @@ function initVarValue() {
 }
 
 function main(num) {
+    if (mode == "center") initCenterDiv();
     initDotObj(num);
     updateChart(parseInt(day), newRecord, infectedNum, hasGotInfected);
     for (let i = 0; i < document.getElementsByClassName("dot").length; i++) {
@@ -138,6 +195,7 @@ function main(num) {
 function initDotObj(num) {
     for (let i = 0; i < num; i++) {
         let dotObj = new Dot({
+            peopleSize: peopleSize,
             socialDistance: socialDistance,
             energy: energy,
             infected: false,
@@ -247,7 +305,19 @@ function moveAllDots() {
 }
 
 function moveDot(i) {
-    allDotObjs[i].move();
+    if (mode == "center") {
+        if (!allDotObjs[i].atCenter) {
+            if ((Math.random() * 100) < goToCenterRate) {
+                allDotObjs[i].move("toCenter");
+            } else {
+                allDotObjs[i].move("default");
+            }
+        } else {
+            allDotObjs[i].move("outOfCenter");
+        }
+    } else if (mode == "classic") {
+        allDotObjs[i].move("default");
+    }
     document.getElementById(`Dot${i}`).style.left = `${allDotObjs[i].pos[0]}px`;
     document.getElementById(`Dot${i}`).style.top = `${allDotObjs[i].pos[1]}px`;
     let selfCenterPos = [

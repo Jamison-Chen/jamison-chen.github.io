@@ -12,7 +12,27 @@
 </head>
 
 <body>
-    <div id="main" style="width:100vw; height:100vh; position:fixed; top:0%; left:0%;"></div>
+    <div id="select-mode-page">
+        <div id="description">Select a Mode</div>
+        <div class="mode" id="classic-mode">
+            <div class="mode-name">classic</div>
+        </div>
+        <div class="mode" id="center-mode">
+            <div class="mode-name">center</div>
+            <div class="mode-options">
+                <div class="info">
+                    <label for="goRate">The possibility for each one to go to the center</label>
+                    <output></output>
+                </div>
+                <input type="range" name="goRate" id="go-rate-scrl-bar" class="scrl-bar">
+            </div>
+        </div>
+        <div id="pull-up-btn"></div>
+        <div id="pull-down-btn"></div>
+    </div>
+    <div id="main">
+        <div class="center" id="center"></div>
+    </div>
     <div class="side-bar">
         <div class="settings">
             <div class="info">
