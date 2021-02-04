@@ -8,7 +8,10 @@
         let password = "106208004";
         let inputVal = window.prompt("This page is only available for the teacher of this class, so please enter my student ID to pass in.");
         while (true) {
-            if (inputVal != password) {
+            if (inputVal == null) {
+                location.assign("/index.html");
+                break;
+            } else if (inputVal != password) {
                 inputVal = window.prompt("This page is only available for the teacher of this class, so please enter my student ID to pass in.");
             } else {
                 break;
