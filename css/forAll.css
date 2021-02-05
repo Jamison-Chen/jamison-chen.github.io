@@ -16,6 +16,10 @@ body {
     background: #888;
 }
 
+.header {
+    height: 40vh;
+}
+
 .main-btn {
     animation: popout 0.3s ease;
 }
@@ -48,4 +52,8 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.footer {
+    height: 40vh;
 }

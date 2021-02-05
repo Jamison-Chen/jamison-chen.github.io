@@ -10,40 +10,45 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="SHORTCUT ICON" href="/favicon.ico">
+    <script type="module" src="./js/forIndex.mjs" defer></script>
     <title>陳秉洋 Jamison Chen</title>
 </head>
 
 <body>
-    <div class="d-flex align-items-center justify-content-center" style="height:100vh">
-        <div class="w-100 d-flex justify-content-center" style="position: fixed; top:20vh">
-            <div id="path" c;ass="d-flex">
+    <div class="d-flex flex-column align-items-center justify-content-start" style="height:100vh">
+        <div class="header w-100 d-flex justify-content-center">
+            <div id="path" class="d-flex align-items-end py-5">
                 <a href="#" class="part-of-path">HOME</a>
             </div>
         </div>
-        <div class="row w-100 d-flex justify-content-center">
-            <div class="col-sm-6 col-12 row d-flex justify-content-between">
-                <a href="./side_project/home.html" class="main-btn btn btn-primary btn-lg col-lg-5 mx-1 my-3 py-3" role="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack mb-1" viewBox="0 0 16 16">
+        <div class="w-100 d-flex justify-content-center">
+            <div class="btn-grid" id="btn-grid">
+                <a href="#" class="main-btn m-1" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg><span class="subject-word pl-3">About Me</span>
+                </a>
+                <a href="./side_project/home.html" class="main-btn m-1" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
                         <path d="M14.12 10.163l1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
                         <path d="M14.12 6.576l1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
-                    </svg><span class="pl-3">Side Projects</span>
+                    </svg><span class="subject-word pl-3">Side Projects</span>
                 </a>
-                <a href="./articles/home.html" class="main-btn btn btn-success btn-lg col-lg-5 mx-1 my-3 py-3" role="button">
+                <a href="./articles/home.html" class="main-btn m-1" role="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z"/>
                         <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
                         <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                    </svg><span class="pl-3">Articles</span>
+                    </svg><span class="subject-word pl-3">Articles</span>
                 </a>
-                <a href="" class="main-btn btn btn-danger btn-lg col-lg-5 mx-1 my-3 py-3" role="button">XXX</a>
-                <a href="./2020_Fall_IntroToCS/home.html" class="main-btn btn btn-warning btn-lg col-lg-5 mx-1 my-3 py-3" role="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-book-half mb-1" viewBox="0 0 16 16">
+                <a href="./2020_Fall_IntroToCS/home.html" class="main-btn m-1" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
                         <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-                    </svg><span class="pl-3">2020 CS Intro</span>
+                    </svg><span class="subject-word pl-3">2020 CS Intro</span>
                 </a>
             </div>
         </div>
-        <div class="w-100 d-flex justify-content-center" style="position: fixed; bottom:10vh">
+        <div class="footer w-100 d-flex justify-content-center align-items-center">
             <div class="d-flex">
                 <a href="https://www.facebook.com/JamisonChen0429/" class="dropdown-item" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">

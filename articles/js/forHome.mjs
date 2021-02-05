@@ -14,9 +14,9 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById("back-to-home").style.display = "flex";
 }
 
-rwd();
+applyRWD();
 
-function rwd() {
+function applyRWD() {
     windowWidth = window.innerWidth;
     if (1024 <= windowWidth) {
         main.style.width = "50%";
@@ -39,7 +39,7 @@ function rwd() {
     }
 }
 
-window.addEventListener("resize", rwd);
+window.addEventListener("resize", applyRWD);
 
 // window.addEventListener("scroll", function() {
 //     let st = window.pageYOffset || document.documentElement.scrollTop;
