@@ -1,11 +1,19 @@
 let windowWidth;
-let articlePreview = document.getElementsByClassName("preview");
+// let articlePreview = document.getElementsByClassName("preview");
 let classBar = document.getElementById("class-bar");
 let headerRightSide = document.getElementById("header-right-side");
 let searchBtn = document.getElementById("search-btn");
 let searchBar = document.getElementById("search-bar");
 let main = document.getElementById("main");
+let articleTitle = document.getElementsByClassName("article-title");
 // let lastScrollTop = 0;
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    document.getElementById("back-to-home").style.display = "none";
+} else {
+    document.getElementById("back-to-home").style.display = "flex";
+}
+
 rwd();
 
 function rwd() {
@@ -13,12 +21,21 @@ function rwd() {
     if (1024 <= windowWidth) {
         main.style.width = "50%";
         classBar.style.width = "50%";
+        for (let i = 0; i < articleTitle.length; i++) {
+            articleTitle[i].style.fontSize = "2rem";
+        }
     } else if (512 <= windowWidth && windowWidth < 1024) {
         main.style.width = "85%";
         classBar.style.width = "85%";
+        for (let i = 0; i < articleTitle.length; i++) {
+            articleTitle[i].style.fontSize = "2rem";
+        }
     } else if (windowWidth < 512) {
         main.style.width = "95%";
         classBar.style.width = "95%";
+        for (let i = 0; i < articleTitle.length; i++) {
+            articleTitle[i].style.fontSize = "1.6rem";
+        }
     }
 }
 

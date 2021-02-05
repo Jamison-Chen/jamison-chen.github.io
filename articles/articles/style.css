@@ -51,7 +51,14 @@
     text-align: justify;
     text-justify: inter-ideograph;
     font-size: 1.2rem;
-    color: #222;
+    color: #333;
+    word-break: break-word;
+}
+
+.paragraph.formula {
+    text-align: center;
+    letter-spacing: 4px;
+    font-style: italic;
 }
 
 .word-comment {
