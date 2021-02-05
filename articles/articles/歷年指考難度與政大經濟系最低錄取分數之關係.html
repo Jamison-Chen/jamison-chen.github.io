@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/forAll.css">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script type="module" src="./script.mjs" defer></script>
+    <title>陳秉洋 Jamison Chen</title>
+</head>
+
+<body class="d-flex row justify-content-center w-100 m-0 pb-5">
+    <div class="main-img-container">
+        <img src="../images/test.jpg" alt="" srcset="" class="main-img">
+        <div class="article-title" id="article-title">歷年指考難度與政大經濟系最低錄取分數之關係</div>
+    </div>
+    <div class="article-info" id="article-info">
+        <div class="article-info-label">陳秉洋</div>
+        <div class="article-info-label">2020/01/16</div>
+        <div class="article-info-label">ECONOMICS</div>
+    </div>
+    <div class="article-content" id="article-content">
+        <div class="paragraph-title">摘要</div>
+        <div class="paragraph">
+            本報告試圖用歷年指考五標之分數資料，與歷年政大經濟系指考最低錄取分數資料，描繪出一個模型供未來年度欲考取政大經濟系的學生預測，其在指考的表現至少應該如何，簡言之便是在做一個單一科系的落點分析。預期這個概念可以延伸使用至所有校系，如此一來便可做出一份具計量基礎的更完整的綜合落點分析。
+        </div>
+        <div class="paragraph">
+            本報告所採集之資料涵蓋民國93年至民國106年，至於為何沒有採用107、108兩年，後續報告中將細述。以每一年的資料作為一個樣本，但也因為指考開辦至今僅16年，樣本數量極為有限，故在做未來之預測時可能隨時間之推進而逐漸失真，因此此模型必須在每一年有新的樣本產生之後進行修正，方能維持其準確性。
+        </div>
+        <div class="paragraph-title">前言</div>
+        <div class="paragraph">
+            自民國93年起，每年七月舉辦的大學指考，是決定許多高三生未來四年的去向的重要檢定，而每年各科試卷難度也會成為許多準大學生間短期的熱門話題。
+        </div>
+        <div class="paragraph">
+            此外，各大學校系歷年的最低錄取分數，也被拿來作為考生選填志願的重要參考，以107年指考放榜的結果為例，要錄取政大經濟系，加權<sup class="word-comment">註</sup>後的分數至少要拿到377.25分，若我是108年的指考考生，便可以此為參考，比對自己的加權分數後評估自己被錄取的可能性。
+        </div>
+        <div class="paragraph">
+            然而如前所述，每年考試的難度不同，當某科目難度較往年上升時，考生的表現會下滑，因此加權後分數並不適合直接拿來與往年做比較，必須根據當年的考試難度做調整，換句話說：我不能因為107年的最低錄取分數是377.25分，就說我108年只要考相同的分數就可以上，因為有可能108年的考試整體較難，大家都考得較差，錄取分數便會下降。
+        </div>
+        <div class="paragraph">
+            但該如何衡量每一年的考試難度呢？若純粹以某單一個人寫歷屆試題的經驗進行評價，可能過於主觀，難度分級的標準、所使用的單位也是難題（使用「分數」會衍生太多其他變因，包括：以前是否寫過類似題目、寫試卷時環境的壓力是否跟真實考場相同、當天肚子痛不痛等）。
+        </div>
+        <div class="paragraph">
+            那麼，若是採用「該份試卷當年應屆考生之全體表現」作為參考呢？首先，如此一來便能解決「過於主觀」的問題，且難度的衡量也可以使用全體學生分數的某個統計值。
+        </div>
+        <div class="paragraph">
+            然而這必須有一個假設，那就是每年整體的考生素質為「獨立同分配」（iid），在此假設下，我決定使用「五標」<sup class="word-comment">註</sup>作為難度衡量的標準，其餘說明，請見「計量模型」。
+        </div>
+        <div class="paragraph-title">計量模型</div>
+        <div class="paragraph">
+            首先我決定先採用國文、英文、數甲、數乙、地理、歷史、物理、化學、生物共9科的「均標」作為解釋變數<sup class="word-comment">註</sup>，因此模型如下：
+        </div>
+        <div class="paragraph" style="text-align: center;letter-spacing: 4px;">
+            （模型一）y=β<sub>0</sub>+β<sub>1</sub>x<sub>1</sub>+β<sub>2</sub>x<sub>2</sub>+β<sub>3</sub>x<sub>3</sub>+β<sub>4</sub>x<sub>4</sub>+β<sub>5</sub>x<sub>5</sub>+β<sub>6</sub>x<sub>6</sub>+β<sub>7</sub>x<sub>7</sub>+β<sub>8</sub>x<sub>8</sub>+β<sub>9</sub>x<sub>9</sub>+u<sub>1</sub>
+        </div>
+        <div class="paragraph">
+            其中y為某年政大經濟系最低錄取分數，x<sub>1</sub>～x<sub>9</sub>即為對應年份上述9科之均標成績。
+        </div>
+        <div class="paragraph">
+            但考慮到能就讀政大經濟系的學生，整體程度應該還不錯，因此其程度的分配狀況應該更接近「頂標」或者至少「前標」之學生族群的分配狀況，因此我決定再分建構以下兩個模型：
+        </div>
+        <div class="paragraph" style="text-align: center;letter-spacing: 4px;">
+            （模型二）y=α<sub>0</sub>+α<sub>1</sub>w<sub>1</sub>+α<sub>2</sub>w<sub>2</sub>+α<sub>3</sub>w<sub>3</sub>+α<sub>4</sub>w<sub>4</sub>+α<sub>5</sub>w<sub>5</sub>+α<sub>6</sub>w<sub>6</sub>+α<sub>7</sub>w<sub>7</sub>+α<sub>8</sub>w<sub>8</sub>+α<sub>9</sub>w<sub>9</sub>+u<sub>2</sub>
+        </div>
+        <div class="paragraph">
+            其中w<sub>1</sub>～w<sub>9</sub>為對應年份上述9科之「前標」成績。
+        </div>
+        <div class="paragraph" style="text-align: center;letter-spacing: 4px;">
+            （模型三）y=γ<sub>0</sub>+γ<sub>1</sub>z<sub>1</sub>+γ<sub>2</sub>z<sub>2</sub>+γ<sub>3</sub>z<sub>3</sub>+γ<sub>4</sub>z<sub>4</sub>+γ<sub>5</sub>z<sub>5</sub>+γ<sub>6</sub>z<sub>6</sub>+γ<sub>7</sub>z<sub>7</sub>+γ<sub>8</sub>z<sub>8</sub>+γ<sub>9</sub>z<sub>9</sub>+u<sub>3</sub>
+        </div>
+        <div class="paragraph">
+            其中z<sub>1</sub>～z<sub>9</sub>為對應年份上述9科之「頂標」成績。
+        </div>
+    </div>
+    <div class="d-flex" id="back-bar">
+        <a href="../home.html" id="back-to-home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#888" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+        </a>
+        <a href="/index.html" id="back-to-index">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#888" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            </svg>
+        </a>
+    </div>
+</body>
+
+</html>

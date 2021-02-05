@@ -11,35 +11,14 @@ rwd();
 function rwd() {
     windowWidth = window.innerWidth;
     if (1024 <= windowWidth) {
-        main.classList.remove("col-10");
-        main.classList.remove("col-11");
-        main.classList.add("col-6");
-        classBar.classList.remove("col-10");
-        classBar.classList.remove("col-11");
-        classBar.classList.add("col-6");
-        classBar.classList.add("offset-3");
-        classBar.classList.add("d-flex");
-        headerRightSide.classList.remove("col-1");
-        headerRightSide.classList.add("col-3");
+        main.style.width = "50%";
+        classBar.style.width = "50%";
     } else if (512 <= windowWidth && windowWidth < 1024) {
-        main.classList.remove("col-6");
-        main.classList.remove("col-11");
-        main.classList.add("col-10");
-        classBar.classList.remove("col-6");
-        classBar.classList.remove("col-11");
-        classBar.classList.remove("offset-3");
-        classBar.classList.add("col-10");
-        classBar.classList.add("offset-1");
-        classBar.classList.add("d-flex");
-        headerRightSide.classList.add("col-1");
-        headerRightSide.classList.remove("col-3");
+        main.style.width = "85%";
+        classBar.style.width = "85%";
     } else if (windowWidth < 512) {
-        main.classList.remove("col-6");
-        main.classList.remove("col-10");
-        main.classList.add("col-11");
-        classBar.classList.remove("col-6");
-        classBar.classList.remove("d-flex");
-        headerRightSide.classList.remove("col-3");
+        main.style.width = "95%";
+        classBar.style.width = "95%";
     }
 }
 

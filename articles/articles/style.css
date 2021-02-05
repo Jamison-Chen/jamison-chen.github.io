@@ -1,0 +1,82 @@
+:root {
+    --w: 100vw;
+}
+
+.main-img-container {
+    width: 100%;
+    height: calc(var(--w)*0.45);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-img-container img {
+    width: 100%;
+    position: absolute;
+    top: -40%;
+}
+
+.article-title {
+    position: absolute;
+    width: 100%;
+    font-weight: 900;
+    bottom: 15%;
+}
+
+.article-info {
+    display: flex;
+    padding: 30px 0 0 0;
+    font-size: 1rem;
+    color: #888;
+}
+
+.article-info-label {
+    margin: 0 0 0 4%;
+}
+
+
+/* .article-cnotent {} */
+
+.paragraph-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 5px;
+    padding: 60px 0 20px 0;
+}
+
+.paragraph {
+    padding: 20px 0;
+    letter-spacing: 2px;
+    line-height: 2.4rem;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.word-comment {
+    color: #4da6ff;
+}
+
+.word-comment:hover {
+    cursor: help;
+}
+
+#back-bar {
+    position: fixed;
+    bottom: 3%;
+    right: 5%;
+}
+
+#back-bar a {
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+#back-bar a:hover {
+    background-color: #eee;
+}
+
+#back-bar a:active {
+    background-color: #ddd;
+}
