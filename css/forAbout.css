@@ -6,14 +6,14 @@
 }
 
 .card-grid {
-    min-width: fit-content;
+    display: grid;
+    gap: 0.8%;
 }
 
 .card-grid.wide {
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: [column] 100px [column] 100px [column] 100px [column] 100px [column] 100px;
+    grid-template-columns: [column] 16% [column] 16% [column] 16% [column] 16% [column] 16% [column] 16%;
     grid-template-rows: [row] auto [row];
+    min-width: fit-content;
 }
 
 #fundamental-info.wide {
@@ -37,45 +37,58 @@
 }
 
 .card-grid.narrow {
-    display: flex;
-    flex-direction: column;
-}
-
-#fundamental-info.narrow {
-    height: 90vw;
-}
-
-#specialization.narrow {
-    height: 90vw;
-}
-
-#work-experience.narrow {
-    height: 90vw;
-}
-
-#contact.narrow {
-    height: 90vw;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* grid-template-columns: 49% 49%; */
+    /* gap: 2%; */
 }
 
 .main-card {
     /* animation: popout 0.3s ease; */
+    position: relative;
+    padding: 0;
+    overflow: hidden;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 210px;
-    background-color: #000;
+    align-items: flex-start;
+    height: 200px;
+    color: #fff;
     border-radius: 3px;
-    color: #ddd;
-    font-size: 1.4rem;
-    font-weight: 100;
     letter-spacing: 2px;
     transition-duration: 300ms;
-    white-space: nowrap;
 }
 
 .main-card:hover {
-    background-color: #333;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.8rem;
+    color: #444;
+}
+
+.main-card>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition-duration: 300ms;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: #000;
+    opacity: 80%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 300ms;
+    font-size: 1.4rem;
+    font-weight: 100;
+}
+
+.card-word {
+    padding: 0 0 0 15%;
+    word-wrap: break-word;
+    font-size: 1rem;
 }
