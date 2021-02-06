@@ -8,42 +8,38 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="./script.js" defer></script>
     <link rel="SHORTCUT ICON" href="/favicon.ico">
     <title>陳秉洋 Jamison Chen</title>
 </head>
 
 <body>
-    <div class="d-flex flex-column align-items-center justify-content-center" style="height:100vh">
-        <div class="w-100 d-flex justify-content-center" style="position: fixed; top:20vh">
-            <div id="path" c;ass="d-flex">
+    <div class="d-flex flex-column align-items-center justify-content-start" style="height:100vh">
+        <div class="home-header">
+            <div id="path" class="path">
                 <a href="/index.html" class="part-of-path">HOME</a>
                 <a href="#" class="part-of-path">／Side Projects</a>
             </div>
         </div>
-        <div class="row w-100 d-flex justify-content-center">
-            <div class="col-sm-6 col-12 row d-flex justify-content-between">
-                <a href="./pathFindingVisualize/main.html" class="main-btn btn btn-primary btn-lg col-lg-5 mx-1 my-3 py-3" role="button">
+        <div class="home-main row">
+            <div class="btn-grid" id="btn-grid">
+                <a href="./pathFindingVisualize/main.html" class="main-btn" role="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bezier2" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5h4.134a1 1 0 1 1 0 1h-2.01c.18.18.34.381.484.605.638.992.892 2.354.892 3.895 0 1.993.257 3.092.713 3.7.356.476.895.721 1.787.784A1.5 1.5 0 0 1 12.5 11h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5H6.866a1 1 0 1 1 0-1h1.711a2.839 2.839 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355-.39-.605-.952-1-1.767-1.112A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5v-1zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10 10a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
                     </svg><span class="pl-3">Pathfinding</span>
                 </a>
-                <a href="./virusSpread/main.html" class="main-btn btn btn-lg col-lg-5 mx-1 my-3 py-3" role="button" style="background-color: #000; color:#FFF;">
+                <a href="./virusSpread/main.html" class="main-btn" role="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-record-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                         <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                     </svg><span class="pl-3">Virus Spread</span>
                 </a>
-                <!-- <a href="" class="main-btn btn btn-success btn-lg col-lg-5 mx-1 my-3 py-3" role="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-fill mb-1" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg> XXX
-                </a> -->
-                <a href="" class="main-btn btn btn-danger btn-lg col-lg-5 mx-1 my-3 py-3" role="button">XXX</a>
-                <a href="" class="main-btn btn btn-warning btn-lg col-lg-5 mx-1 my-3 py-3" role="button">XXX</a>
+                <a href="#" class="main-btn" role="button">XXX</a>
+                <a href="#" class="main-btn" role="button">XXX</a>
             </div>
         </div>
-        <div class="w-100 d-flex justify-content-center" style="position: fixed; bottom:15vh">
-            <div>
+        <div class="home-footer">
+            <div class="d-flex pb-4">
                 <a href="/index.html" class="dropdown-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                         <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
@@ -53,7 +49,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

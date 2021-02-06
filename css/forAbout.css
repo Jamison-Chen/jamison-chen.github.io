@@ -1,0 +1,81 @@
+.home-header {
+    height: 25vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.card-grid {
+    min-width: fit-content;
+}
+
+.card-grid.wide {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: [column] 100px [column] 100px [column] 100px [column] 100px [column] 100px;
+    grid-template-rows: [row] auto [row];
+}
+
+#fundamental-info.wide {
+    grid-column: column / span 2;
+    grid-row: row;
+}
+
+#specialization.wide {
+    grid-column: column 3 / span 4;
+    grid-row: row;
+}
+
+#work-experience.wide {
+    grid-column: column / span 4;
+    grid-row: row 2;
+}
+
+#contact.wide {
+    grid-column: column 5 / span 2;
+    grid-row: row 2;
+}
+
+.card-grid.narrow {
+    display: flex;
+    flex-direction: column;
+}
+
+#fundamental-info.narrow {
+    height: 90vw;
+}
+
+#specialization.narrow {
+    height: 90vw;
+}
+
+#work-experience.narrow {
+    height: 90vw;
+}
+
+#contact.narrow {
+    height: 90vw;
+}
+
+.main-card {
+    /* animation: popout 0.3s ease; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 210px;
+    background-color: #000;
+    border-radius: 3px;
+    color: #ddd;
+    font-size: 1.4rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    transition-duration: 300ms;
+    white-space: nowrap;
+}
+
+.main-card:hover {
+    background-color: #333;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.8rem;
+}

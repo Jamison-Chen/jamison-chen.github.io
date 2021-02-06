@@ -16,12 +16,11 @@ body {
     background: #888;
 }
 
-.header {
+.home-header {
     height: 40vh;
-}
-
-.main-btn {
-    animation: popout 0.3s ease;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 @keyframes popout {
@@ -39,6 +38,12 @@ body {
     }
 }
 
+#path {
+    display: flex;
+    align-items: flex-end;
+    padding: 50px 0;
+}
+
 .part-of-path {
     color: #999;
     font-size: 2em;
@@ -54,6 +59,47 @@ a {
     text-decoration: none;
 }
 
-.footer {
-    height: 40vh;
+.home-main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: stretch;
+}
+
+.main-btn {
+    animation: popout 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #000;
+    border-radius: 3px;
+    color: #ddd;
+    font-size: 1.4rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    transition-duration: 300ms;
+    white-space: nowrap;
+}
+
+.main-btn:hover {
+    background-color: #333;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.home-footer {
+    height: 50vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
