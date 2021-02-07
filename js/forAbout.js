@@ -16,20 +16,28 @@ applyRWD();
 
 function applyRWD() {
     windowWidth = window.innerWidth;
-    if (640 <= windowWidth) {
+    if (950 <= windowWidth) {
         cardGrid.style.width = "50%";
         cardGrid.classList.add("wide");
         cardGrid.classList.remove("narrow");
+        cardGrid.classList.remove("super-narrow");
         for (let i = 0; i < allMainCards.length; i++) {
             allMainCards[i].classList.add("wide");
-            allMainCards[i].classList.remove("narrow");
         }
-    } else if (windowWidth < 640) {
+    } else if (680 <= windowWidth && windowWidth < 950) {
         cardGrid.style.width = "60%";
         cardGrid.classList.add("narrow");
+        cardGrid.classList.remove("super-narrow");
         cardGrid.classList.remove("wide");
         for (let i = 0; i < allMainCards.length; i++) {
-            allMainCards[i].classList.add("narrow");
+            allMainCards[i].classList.remove("wide");
+        }
+    } else if (windowWidth < 680) {
+        cardGrid.style.width = "80%";
+        cardGrid.classList.add("super-narrow");
+        cardGrid.classList.remove("narrow");
+        cardGrid.classList.remove("wide");
+        for (let i = 0; i < allMainCards.length; i++) {
             allMainCards[i].classList.remove("wide");
         }
     }
@@ -50,13 +58,13 @@ for (let i = 0; i < allMainCards.length; i++) {
     allMainCards[i].addEventListener("mouseenter", e => {
         try {
             document.querySelector(`#${allMainCards[i].id}>.mask`).style.left = "100%";
-            document.querySelector(`#${allMainCards[i].id}>.mask`).style.opacity = "0%";
+            // document.querySelector(`#${allMainCards[i].id}>.mask`).style.opacity = "0%";
         } catch (e) {}
     });
     allMainCards[i].addEventListener("mouseleave", e => {
         try {
             document.querySelector(`#${allMainCards[i].id}>.mask`).style.left = "0";
-            document.querySelector(`#${allMainCards[i].id}>.mask`).style.opacity = "80%";
+            // document.querySelector(`#${allMainCards[i].id}>.mask`).style.opacity = "80%";
         } catch (e) {}
     });
 }
