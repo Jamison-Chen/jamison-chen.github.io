@@ -48,7 +48,6 @@
     position: relative;
     padding: 0;
     overflow: hidden;
-    height: 240px;
     color: #fff;
     border-radius: 3px;
     letter-spacing: 2px;
@@ -59,17 +58,39 @@
     align-items: flex-start;
 }
 
-.card-word {
-    word-wrap: break-word;
-    padding: 0 0 0 15%;
-    font-size: 1rem;
+.main-card.wide,
+.main-card.narrow {
+    height: 240px;
+}
+
+.main-card.super-narrow {
+    height: 310px;
 }
 
 .main-card:hover {
     color: #444;
 }
 
-.main-card>img {
+.card-word.wide {
+    word-wrap: break-word;
+}
+
+.card-word.wide {
+    margin: 10px 0 10px 15%;
+    font-size: 1rem;
+}
+
+.card-word.narrow {
+    margin: 5px 0 5px 15%;
+    font-size: 0.9rem;
+}
+
+.card-word.super-narrow {
+    margin: 5px 0 5px 15%;
+    font-size: 0.8rem;
+}
+
+#my-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -84,7 +105,6 @@
     margin: 0;
     padding: 0 0 0 20px;
     background-color: #000;
-    opacity: 80%;
     height: 100%;
     width: 100%;
     display: flex;
@@ -94,4 +114,8 @@
     font-size: 1.4rem;
     font-weight: 100;
     overflow: hidden;
+}
+
+#contact>.card-word {
+    word-break: break-all;
 }
