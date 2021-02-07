@@ -33,15 +33,25 @@
     margin: 0 0 0 4%;
 }
 
-
-/* .article-cnotent {} */
+.article-info-label.name {
+    cursor: pointer;
+}
 
 .paragraph-title {
-    font-size: 2rem;
     font-weight: 700;
-    text-align: center;
     letter-spacing: 5px;
+}
+
+.paragraph-title.tier-1 {
+    font-size: 2rem;
+    text-align: center;
     padding: 60px 0 20px 0;
+}
+
+.paragraph-title.tier-2 {
+    font-size: 1.4rem;
+    text-align: start;
+    padding: 20px 0 20px 0;
 }
 
 .paragraph {
@@ -61,12 +71,28 @@
     font-style: italic;
 }
 
+.paragraph.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragraph.img>img {
+    width: 100%;
+}
+
 .word-comment {
     color: #4da6ff;
 }
 
 .word-comment:hover {
-    cursor: help;
+    cursor: pointer;
+}
+
+.recommended-article {
+    margin: 100px 0;
+    padding: 0;
+    font-size: 1.2rem;
 }
 
 #back-bar {

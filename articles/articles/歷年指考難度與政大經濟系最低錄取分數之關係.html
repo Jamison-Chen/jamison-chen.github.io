@@ -13,30 +13,30 @@
     <title>陳秉洋 Jamison Chen</title>
 </head>
 
-<body class="d-flex row justify-content-center w-100 m-0 pb-5">
+<body class="d-flex row justify-content-center w-100 mx-0 pb-5">
     <div class="main-img-container">
         <img src="../images/test.jpg" alt="" srcset="" class="main-img">
         <div class="article-title" id="article-title">歷年指考難度與政大經濟系最低錄取分數之關係</div>
     </div>
     <div class="article-info" id="article-info">
-        <div class="article-info-label">陳秉洋</div>
-        <div class="article-info-label">2020/01/16</div>
-        <div class="article-info-label">ECONOMICS</div>
+        <div class="article-info-label name" onclick="location.href='/about.html'">陳秉洋</div>
+        <div class="article-info-label last-update">2020/01/16</div>
+        <div class="article-info-label domain">ECONOMICS</div>
     </div>
     <div class="article-content" id="article-content">
-        <div class="paragraph-title">摘要</div>
+        <div class="paragraph-title tier-1">摘要</div>
         <div class="paragraph">
             本報告試圖用歷年指考五標之分數資料，與歷年政大經濟系指考最低錄取分數資料，描繪出一個模型供未來年度欲考取政大經濟系的學生預測，其在指考的表現至少應該如何，簡言之便是在做一個單一科系的落點分析。預期這個概念可以延伸使用至所有校系，如此一來便可做出一份具計量基礎的更完整的綜合落點分析。
         </div>
         <div class="paragraph">
             本報告所採集之資料涵蓋民國93年至民國106年，至於為何沒有採用107、108兩年，後續報告中將細述。以每一年的資料作為一個樣本，但也因為指考開辦至今僅16年，樣本數量極為有限，故在做未來之預測時可能隨時間之推進而逐漸失真，因此此模型必須在每一年有新的樣本產生之後進行修正，方能維持其準確性。
         </div>
-        <div class="paragraph-title">前言</div>
+        <div class="paragraph-title tier-1">前言</div>
         <div class="paragraph">
             自民國93年起，每年七月舉辦的大學指考，是決定許多高三生未來四年的去向的重要檢定，而每年各科試卷難度也會成為許多準大學生間短期的熱門話題。
         </div>
         <div class="paragraph">
-            此外，各大學校系歷年的最低錄取分數，也被拿來作為考生選填志願的重要參考，以107年指考放榜的結果為例，要錄取政大經濟系，加權<sup class="word-comment">註</sup>後的分數至少要拿到377.25分，若我是108年的指考考生，便可以此為參考，比對自己的加權分數後評估自己被錄取的可能性。
+            此外，各大學校系歷年的最低錄取分數，也被拿來作為考生選填志願的重要參考，以107年指考放榜的結果為例，要錄取政大經濟系，加權<sup class="word-comment" onclick="alert('每個校系採納的科目不同，各科目所占權重也不同。以政大經濟系107年為例，採計國、英、數乙三科，權重分別為1.00/1.50/2.00。')">註</sup>後的分數至少要拿到377.25分，若我是108年的指考考生，便可以此為參考，比對自己的加權分數後評估自己被錄取的可能性。
         </div>
         <div class="paragraph">
             然而如前所述，每年考試的難度不同，當某科目難度較往年上升時，考生的表現會下滑，因此加權後分數並不適合直接拿來與往年做比較，必須根據當年的考試難度做調整，換句話說：我不能因為107年的最低錄取分數是377.25分，就說我108年只要考相同的分數就可以上，因為有可能108年的考試整體較難，大家都考得較差，錄取分數便會下降。
@@ -48,11 +48,11 @@
             那麼，若是採用「該份試卷當年應屆考生之全體表現」作為參考呢？首先，如此一來便能解決「過於主觀」的問題，且難度的衡量也可以使用全體學生分數的某個統計值。
         </div>
         <div class="paragraph">
-            然而這必須有一個假設，那就是每年整體的考生素質為「獨立同分配」（iid），在此假設下，我決定使用「五標」<sup class="word-comment">註</sup>作為難度衡量的標準，其餘說明，請見「計量模型」。
+            然而這必須有一個假設，那就是每年整體的考生素質為「獨立同分配」（iid），在此假設下，我決定使用「五標」<sup class="word-comment" onclick="alert('分別為頂標、前標、均標、後標、底標，其實就是第88百分位數、第75百分位數、第50百分位數、第25百分位數，及第12百分位數學生之成績。')">註</sup>作為難度衡量的標準，其餘說明請見下一段。
         </div>
-        <div class="paragraph-title">計量模型</div>
+        <div class="paragraph-title tier-1">計量模型</div>
         <div class="paragraph">
-            首先我決定先採用國文、英文、數甲、數乙、地理、歷史、物理、化學、生物共9科的「均標」作為解釋變數<sup class="word-comment">註</sup>，因此模型如下：
+            首先我決定先採用國文、英文、數甲、數乙、地理、歷史、物理、化學、生物共9科的「均標」作為解釋變數<sup class="word-comment" onclick="alert('公民、地球科學兩科由於在前幾年指考尚未列入考試，故此處選擇不採用。')">註</sup>，因此模型如下：
         </div>
         <div class="paragraph formula">
             （模型一）y=β<sub>0</sub>+β<sub>1</sub>x<sub>1</sub>+β<sub>2</sub>x<sub>2</sub>+β<sub>3</sub>x<sub>3</sub>+β<sub>4</sub>x<sub>4</sub>+β<sub>5</sub>x<sub>5</sub>+β<sub>6</sub>x<sub>6</sub>+β<sub>7</sub>x<sub>7</sub>+β<sub>8</sub>x<sub>8</sub>+β<sub>9</sub>x<sub>9</sub>+u<sub>1</sub>
@@ -75,6 +75,178 @@
         <div class="paragraph">
             其中z<sub>1</sub>～z<sub>9</sub>為對應年份上述9科之「頂標」成績。
         </div>
+        <div class="paragraph-title tier-2">Restricted Models</div>
+        <div class="paragraph">
+            然而，歷年來政大經濟系所採計的指考分數只有國文、英文、數乙三科，原模型中的其他六科極有可能不顯著影響被解釋變數y，因此除上述三個模型外，我將另外使用以下四個限制模型：
+        </div>
+        <div class="paragraph formula">
+            （模型四）y=β<sub>0</sub>+β<sub>1</sub>x<sub>1</sub>+β<sub>2</sub>x<sub>2</sub>+β<sub>3</sub>x<sub>3</sub>+u<sub>4</sub>
+        </div>
+        <div class="paragraph">
+            x<sub>1</sub>～x<sub>3</sub>分別為國文、英文、數乙三科之均標。
+        </div>
+        <div class="paragraph formula">
+            （模型五）y=α<sub>0</sub>+α<sub>1</sub>w<sub>1</sub>+α<sub>2</sub>w<sub>2</sub>+α<sub>3</sub>w<sub>3</sub>+u<sub>5</sub>
+        </div>
+        <div class="paragraph">
+            w<sub>1</sub>～w<sub>3</sub>分別為國文、英文、數乙三科之前標。
+        </div>
+        <div class="paragraph formula">
+            （模型六）y=γ<sub>0</sub>+γ<sub>1</sub>z<sub>1</sub>+γ<sub>2</sub>z<sub>2</sub>+γ<sub>3</sub>z<sub>3</sub>+u<sub>6</sub>
+        </div>
+        <div class="paragraph">
+            z<sub>1</sub>～z<sub>3</sub>分別為國文、英文、數乙三科之頂標。
+        </div>
+        <div class="paragraph">
+            基於某些原因，（於下一段說明）我另外建構模型七如下：
+        </div>
+        <div class="paragraph formula">
+            （模型七）y=δ<sub>0</sub>+δ<sub>1</sub>z<sub>1</sub>+δ<sub>2</sub>z<sub>2</sub>+δ<sub>3</sub>z<sub>3</sub>+u<sub>7</sub>
+        </div>
+        <div class="paragraph">
+            z<sub>1</sub>～z<sub>3</sub>仍分別為國文、英文、數乙三科之頂標。
+        </div>
+        <div class="paragraph-title tier-1">資料來源與分析</div>
+        <div class="paragraph-title tier-2">資料來源</div>
+        <div class="paragraph">
+            (1) 歷年政大經濟系指考最低錄取分數：大學考試入學分發委員會。<br>(2) 歷年指考各科五標：網路資料。
+        </div>
+        <div class="paragraph">
+            需要注意的是，由於<b>政大經濟系於民國107年起將數乙的權重由原本的1.5倍調升至2.0倍，在這之後之年度(107、108年)的最低錄取分數皆不可與調整前的相提並論，因此我所分析的是民國93至106年（共14年）的資料。</b>
+        </div>
+        <div class="paragraph-title tier-2">資料分析</div>
+        <div class="paragraph">
+            首先，模型一、模型二、模型三的檢定統計如下：
+        </div>
+        <div class="paragraph img">
+            ▼模型一（均標模型）
+            <img src="../images/model_1_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph img">
+            ▼模型二（前標模型）
+            <img src="../images/model_2_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph img">
+            ▼模型三（頂標模型）
+            <img src="../images/model_3_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            由於太多不相干的科目被考慮，不但那些科目自己不顯著，也使得原本可能顯著影響y的科目，其個別顯著性消失。
+        </div>
+        <div class="paragraph">
+            有趣的是，即使有諸多雜訊，三個模型卻有一個共通點，那就是「數乙」在0.1%顯著水準下仍是顯著影響被解釋變數（y）的。或許這個可以解釋成：「即使不論其他科考地難不難，只要那年數乙難，政大經濟系的最低錄取分數就會下降。」<sup class="word-comment" onclick="alert('或許是觀察到這個現象，政大經濟系才在近兩年調升數乙的權重。')">註</sup>
+        </div>
+        <div class="paragraph">
+            言歸正傳，為了證明除了國文、英文、數乙外，其他六科真的不具顯著性，我利用模型三（頂標模型）延伸檢測了該些科目的joint significance，結果如下：
+        </div>
+        <div class="paragraph img">
+            ▼聯合顯著性檢定
+            <img src="../images/joint_significance_test.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            可見Pr(>F)＝0.4607 > 0.05，故可以推測數甲、地理、歷史、物理、化學、生物等六科的難度並不顯著影響政大經濟系當年的最低錄取分數，因此後續我將以模型四到模型六及其延伸，作為主要使用之模型。以下為模型四到模型六各係數的顯著狀況：
+        </div>
+        <div class="paragraph img">
+            ▼模型四（均標模型）
+            <img src="../images/model_4_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph img">
+            ▼模型五（前標模型）
+            <img src="../images/model_5_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph img">
+            ▼模型六（頂標模型）
+            <img src="../images/model_6_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            從上面三個結果可見，若使用均標或者前標作為衡量難度的標準，則國文的係數皆不具顯著性、英文的顯著水準也偏低；使用頂標模型雖可以解決這個問題，不過截距項的顯著水準卻被犧牲了。<sup class="word-comment" onclick="alert('從模型四到模型六的截距項數值逐漸降低乃正常現象，因為任何一科的分數都是頂標＞前標＞均標，使用越低的分數作為衡量難度的標準，就要有越高的截距項才能達到最低錄取分數。')">註</sup>
+        </div>
+        <div class="paragraph">
+            <b>然而，我發現若將模型六的國文成績改成「國文成績的平方」，便可以解決截距項顯著水準偏低的問題。</b>（見下方模型七圖）
+        </div>
+        <div class="paragraph">
+            至於國文科的係數之顯著水準普遍較低的原因，由前面模型四到模型六的圖可知，是因為「標準誤過高」（國文科的標準誤都是英文與數甲的2.5~3倍），而標準誤過高又可歸咎於「該解釋變數」的Total Sum of Squares過低，而「國文科的Total Sum of Squares過低」這件事就隱含了：「歷年來的指考國文難度大致相同，使得學生的國文科成績相較於其他科而言，沒有太大波動。」由下圖可見，事實的確如此：
+        </div>
+        <div class="paragraph img">
+            ▼歷年國文科頂標成績
+            <img src="../images/historical_chinese_score.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            最後我所使用的模型是模型七：
+        </div>
+        <div class="paragraph formula">
+            y=γ<sub>0</sub>+γ<sub>1</sub>(z<sub>1</sub>)<sup>2</sup>+γ<sub>2</sub>z<sub>2</sub>+γ<sub>3</sub>z<sub>3</sub>+u
+        </div>
+        <div class="paragraph">
+            z<sub>1</sub>～z<sub>3</sub>分別為國文、英文、數乙三科加權後之頂標。
+        </div>
+        <div class="paragraph img">
+            ▼模型七（國文平方的頂標模型）
+            <img src="../images/model_7_test_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph-title tier-1">實證結果</div>
+        <div class="paragraph">
+            由<b>民國93年至民國106年</b>的資料，可以得到下面這個Fitted Regression Line:
+        </div>
+        <div class="paragraph formula">
+            y<sub>i</sub>=94.9004+0.007673×(z<sub>1</sub>)<sup>2</sup>+1.091782×z<sub>2</sub>+1.327439×z<sub>3</sub>
+        </div>
+        <div class="paragraph">
+            我們可以利用此模型來預測資料中所未涵蓋的107年、108年甚至更久以後的指考，需要注意的是，由於我所蒐集到的被解釋變數(y)皆是以「國文x1.00」、「英文x1.50」、「數學x1.50」加權並加總過後的最低錄取分數，因此模型中的各係數其實已經隱含了對應的倍數在其中，輸入新的一年的成績時無須另外將其加權。不過！由於政大經濟系自107年起將數乙的倍率由1.5倍調升至2.0倍，所以在輸入數乙成績時需將倍率從原本的1.5調至2，也就是說要另外乘以2/1.5。
+        </div>
+        <div class="paragraph-title tier-2">實測107年指考</div>
+        <div class="paragraph img">
+            ▼107年指考五標
+            <img src="../images/107_exam_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            將數字帶入模型中，得到<b>374.2258</b>分。
+        </div>
+        <div class="paragraph img">
+            <img src="../images/107_forcast_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph img">
+            ▼107年政大經濟系指考最低錄取分數
+            <img src="../images/107_NCCU_ECON_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            而當年真正的最低錄取分數為377.25分，<b>兩者僅差3.02分</b>！
+        </div>
+        <div class="paragraph-title tier-2">實測108年指考</div>
+        <div class="paragraph img">
+            ▼108年指考五標
+            <img src="../images/108_exam_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            將數字帶入模型中，得到<b>388.1235</b>分。
+        </div>
+        <div class="paragraph img">
+            <img src="../images/108_forcast_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph img">
+            ▼108年政大經濟系指考最低錄取分數
+            <img src="../images/108_NCCU_ECON_result.png" alt="" srcset="">
+        </div>
+        <div class="paragraph">
+            而當年真正的最低錄取分數為390.68分，<b>兩者僅差2.56分</b>！
+        </div>
+        <div class="paragraph-title tier-1">結論</div>
+        <div class="paragraph">
+            由前述整個模型選擇的過程我們獲得了兩個啟示：<br>
+            <b>(1) 政大經濟系學生的能力分布狀況還是比較接近「頂標」學生的分布，應該還不算太差。</b><br>因為使用均標與前標做出來的模型（模型四與模型五），其顯著水準皆較低。這裡所謂的「能力分布」指的是同一個人面對各種不同難度的考試時，其表現的「起伏狀況」。
+        </div>
+        <div class="paragraph">
+            <b>(2) 比起國文好或英文好，數學好更能讓你在這個系的成績脫穎而出。</b><br>這個結論是綜合兩個現象所歸納而成，第一個現象是，在跑9個科目對最低錄取分數的回歸時，（即模型一到模型三）即使因不重要的變數過多導致許多統計量不顯著，「數乙」這科的顯著水準仍皆維持在0.001；第二個現象便是在於Fitted Regression Line，可以發現各變數的partial effect屬z<sub>3</sub>（數乙）最大。<sup class="word-comment"
+                onclick="alert('即使消除加權的效果亦然。')">註</sup>這兩個現象都說明了，只要當年的數學出難一點，錄取政大經濟系的人分數就明顯下降，可見他們當中大多的數學程度並非「頂尖」，因為真正程度頂尖的人不太會因為考題比較難，成績就出現太大波動。（況且這還只是數乙！）對準考生而言，這個啟示背後的意義即：如果你的目標是政大經濟系，數學是決勝關鍵！
+        </div>
+        <div class="paragraph">
+            最後，雖然不知道坊間的落點分析是怎麼做的，不過我想，若用此概念對每個校系做類似之統計分析，應該可以得到一個還不錯的綜合落點分析結果！
+        </div>
+        <div class="paragraph">
+            然而還是有兩點必須重申，一是本模型含有一個較強的假設：各年度學生的程度分配為iid；二是畢竟指考開辦至今只不到20個年頭，樣本數可謂極少，加上若某系在某年突然改變篩選倍率或篩選科目，該年的最低錄取分數便不可與其他年相提並論，不過我相信隨著時間過去，樣本數累積漸足，做出的預測會更加準確。
+        </div>
+    </div>
+    <div class="recommended-article" id="recommended-article">
     </div>
     <div id="back-bar">
         <a href="../home.html" id="back-to-home">
