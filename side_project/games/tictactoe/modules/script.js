@@ -1,5 +1,6 @@
 import { TicTacToe } from './trainField.js';
 const game = new TicTacToe();
+const controlBar = document.getElementById("control-bar");
 const restartBtn = document.getElementById("restart-btn");
 const reloadBtn = document.getElementById("reload-btn");
 const multiplayerBtn = document.getElementById("multiplayer-btn");
@@ -43,6 +44,7 @@ function disableBtns() {
         multiplayerBtn.disabled = true;
         naiveMachineBtn.disabled = true;
         trainedMachineBtn.disabled = true;
+        controlBar === null || controlBar === void 0 ? void 0 : controlBar.style.bottom = "0";
     }
 }
 function singlePlayerMode(e, shouldTrain) {
