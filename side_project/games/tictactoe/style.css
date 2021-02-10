@@ -1,0 +1,255 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-length: 100px;
+    --mark-size: calc(var(--cell-length)*.9);
+    --mark-color: #000;
+    --hover-mark-color: #aaa;
+    --text-color: #fff;
+    --background-color: #fff;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-board {
+    width: 100vw;
+    height: 80vh;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+#main-board.show {
+    display: grid;
+}
+
+.cell {
+    width: var(--cell-length);
+    height: var(--cell-length);
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n+1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+    border-bottom: none;
+}
+
+.cell.X,
+.cell.O {
+    cursor: default;
+}
+
+.cell.X::before,
+.cell.X::after,
+.cell.O::before,
+.cell.O::after {
+    background-color: var(--mark-color);
+}
+
+#main-board .cell:not(.X):not(.O):hover::before,
+#main-board .cell:not(.X):not(.O):hover::after {
+    background-color: var(--hover-mark-color);
+}
+
+.cell.X::before,
+.cell.X::after,
+#main-board.X .cell:not(.X):not(.O):hover::before,
+#main-board.X .cell:not(.X):not(.O):hover::after {
+    content: "";
+    width: calc(var(--mark-size)*.15);
+    height: var(--mark-size);
+    position: absolute;
+}
+
+.cell.X::before,
+#main-board.X .cell:not(.X):not(.O):hover::before {
+    transform: rotate(45deg);
+}
+
+.cell.X::after,
+#main-board.X .cell:not(.X):not(.O):hover::after {
+    transform: rotate(-45deg);
+}
+
+.cell.O::before,
+.cell.O::after,
+#main-board.O .cell:not(.X):not(.O):hover::before,
+#main-board.O .cell:not(.X):not(.O):hover::after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+}
+
+.cell.O::before,
+#main-board.O .cell:not(.X):not(.O):hover::before {
+    width: calc(var(--mark-size)*.85);
+    height: calc(var(--mark-size)*.85);
+}
+
+.cell.O::after,
+#main-board.O .cell:not(.X):not(.O):hover::after {
+    width: calc(var(--mark-size)*.6);
+    height: calc(var(--mark-size)*.6);
+    background-color: var(--background-color);
+}
+
+#control-bar {
+    position: fixed;
+    bottom: 0;
+    width: 50vw;
+    height: 30vh;
+    /* background-color: #e6e6e6; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn {
+    width: 100%;
+    height: 40px;
+    /* margin: 0 3%; */
+    border-radius: 5px;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.control-btn:focus {
+    outline: none;
+}
+
+#multiplayer-btn {
+    background-color: #1aa1bf;
+}
+
+#multiplayer-btn:hover {
+    background-color: #159cba;
+}
+
+#multiplayer-btn:active {
+    background-color: #1097b5;
+}
+
+#naive-machine-btn {
+    background-color: #f1aa43;
+}
+
+#naive-machine-btn:hover {
+    background-color: #eca53e;
+}
+
+#naive-machine-btn:active {
+    background-color: #e7a039;
+}
+
+#trained-machine-btn {
+    background-color: #c40c05;
+}
+
+#trained-machine-btn:hover {
+    background-color: #bf0700;
+}
+
+#trained-machine-btn:active {
+    background-color: #b70000;
+    cursor: progress;
+}
+
+#reload-btn {
+    background-color: #000;
+}
+
+#reload-btn:hover {
+    background-color: #333;
+}
+
+#reload-btn:active {
+    background-color: #444;
+}
+
+.control-btn:disabled {
+    background-color: #ccc !important;
+    cursor: default;
+}
+
+#winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .8);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: var(--text-color);
+}
+
+#winning-message button {
+    font-size: 2.4rem;
+    background-color: var(--background-color);
+    border: 1px solid black;
+    margin: 100px 0;
+    padding: 8px 14px;
+}
+
+#winning-message button:hover {
+    background-color: #ddd;
+}
+
+#winning-message button:focus {
+    outline: none;
+}
+
+#winning-message.show {
+    display: flex;
+}
+
+.back-bar {
+    position: fixed;
+    bottom: 13%;
+    right: 3%;
+    width: 15%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
