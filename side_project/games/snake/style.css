@@ -1,0 +1,104 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#main {
+    padding: 20px 0;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.each-row {
+    width: 580px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.cell {
+    border: 1px solid #AAA;
+    width: 29px;
+    height: 29px;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
+#side-bar {
+    padding: 10px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn {
+    height: fit-content;
+    border: none;
+    font-size: 1.2em;
+    padding: 10px 0px;
+    margin: 15px;
+    border-radius: 8px;
+    transition-duration: 250ms;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+#play-btn {
+    color: #fff;
+    background-color: #0F9D58;
+}
+
+#play-btn:hover {
+    background-color: #008843;
+}
+
+#play-btn:active {
+    background-color: #007139;
+}
+
+#play-btn:disabled {
+    background-color: #CCC;
+}
+
+#dijkstra-btn {
+    color: #fff;
+    background-color: #444;
+}
+
+#dijkstra-btn:hover {
+    background-color: #222;
+}
+
+#dijkstra-btn:active {
+    background-color: #000;
+}
+
+#dijkstra-btn:disabled {
+    background-color: #CCC;
+}
+
+#current-length {
+    text-align: center;
+    margin: 15px;
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+
+.back-bar {
+    display: flex;
+}
