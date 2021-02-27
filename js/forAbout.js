@@ -1,10 +1,8 @@
 let windowWidth;
 let cardGrid = document.getElementById("card-grid");
 let allMainCards = document.getElementsByClassName("main-card");
+let allMasks = document.getElementsByClassName("mask");
 let fundInfo = document.getElementById("fundamental-info");
-// let specialization = document.getElementById("specialization");
-// let workExp = document.getElementById("work-experience");
-// let contact = document.getElementById("contact");
 let myImg = document.getElementById("my-img");
 let allCardWords = document.getElementsByClassName("card-word");
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -32,6 +30,11 @@ function applyRWD() {
             allCardWords[i].classList.remove("narrow");
             allCardWords[i].classList.remove("super-narrow");
         }
+        for (let i = 0; i < allMasks.length; i++) {
+            allMasks[i].classList.add("wide");
+            allMasks[i].classList.remove("narrow");
+            allMasks[i].classList.remove("super-narrow");
+        }
     } else if (680 <= windowWidth && windowWidth < 950) {
         cardGrid.style.width = "60%";
         cardGrid.classList.add("narrow");
@@ -47,6 +50,11 @@ function applyRWD() {
             allCardWords[i].classList.remove("wide");
             allCardWords[i].classList.remove("super-narrow");
         }
+        for (let i = 0; i < allMasks.length; i++) {
+            allMasks[i].classList.add("narrow");
+            allMasks[i].classList.remove("wide");
+            allMasks[i].classList.remove("super-narrow");
+        }
     } else if (windowWidth < 680) {
         cardGrid.style.width = "80%";
         cardGrid.classList.add("super-narrow");
@@ -61,6 +69,11 @@ function applyRWD() {
             allCardWords[i].classList.add("super-narrow");
             allCardWords[i].classList.remove("wide");
             allCardWords[i].classList.remove("narrow");
+        }
+        for (let i = 0; i < allMasks.length; i++) {
+            allMasks[i].classList.add("super-narrow");
+            allMasks[i].classList.remove("wide");
+            allMasks[i].classList.remove("narrow");
         }
     }
 }

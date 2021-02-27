@@ -103,17 +103,21 @@
     top: 0;
     left: 0;
     margin: 0;
-    padding: 0 0 0 20px;
     background-color: #000;
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     transition-duration: 300ms;
     font-size: 1.4rem;
     font-weight: 100;
     overflow: hidden;
+}
+
+.mask.super-narrow {
+    font-size: 1rem;
 }
 
 #contact>.card-word {
