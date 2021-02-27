@@ -15,14 +15,29 @@
     top: -40%;
 }
 
-.article-title {
+#article-title {
     position: absolute;
     width: 100%;
     font-weight: 900;
     bottom: 15%;
 }
 
-.article-info {
+#article-title.wide {
+    font-size: 3rem;
+    padding: 0 20vw;
+}
+
+#article-title.narrow {
+    font-size: 2.2rem;
+    padding: 0 10vw;
+}
+
+#article-title.super-narrow {
+    font-size: 1.6rem;
+    padding: 0 5vw;
+}
+
+#article-info {
     display: flex;
     padding: 30px 0 0 0;
     font-size: 1rem;
@@ -37,19 +52,34 @@
     cursor: pointer;
 }
 
+#article-content.wide {
+    --fontSize: 2rem;
+    width: 60%;
+}
+
+#article-content.narrow {
+    --fontSize: 2rem;
+    width: 80%;
+}
+
+#article-content.super-narrow {
+    --fontSize: 1.6rem;
+    width: 90%;
+}
+
 .paragraph-title {
     font-weight: 700;
     letter-spacing: 5px;
 }
 
 .paragraph-title.tier-1 {
-    font-size: 2rem;
+    font-size: var(--fontSize);
     text-align: center;
     padding: 60px 0 20px 0;
 }
 
 .paragraph-title.tier-2 {
-    font-size: 1.4rem;
+    font-size: calc(var(--fontSize) * 1.4 / 2);
     text-align: start;
     padding: 20px 0 20px 0;
 }
@@ -60,7 +90,7 @@
     line-height: 2.4rem;
     text-align: justify;
     text-justify: inter-ideograph;
-    font-size: 1.2rem;
+    font-size: calc(var(--fontSize) * 1.2 / 2);
     color: #333;
     word-break: break-word;
 }
@@ -92,7 +122,7 @@
 .recommended-article {
     margin: 100px 0;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: calc(var(--fontSize) * 1.2 / 2);
 }
 
 #back-bar {

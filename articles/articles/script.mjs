@@ -15,22 +15,19 @@ applyRWD();
 function applyRWD() {
     windowWidth = window.innerWidth;
     if (1024 <= windowWidth) {
-        articleTitle.style.fontSize = "3rem";
-        articleTitle.style.padding = "0 20vw"
+        articleTitle.className = "article-title wide";
         articleInfo.style.width = "60%";
-        articleContent.style.width = "60%";
+        articleContent.className = "article-content wide";
         recommendedArticle.style.width = "60%";
     } else if (512 <= windowWidth && windowWidth < 1024) {
-        articleTitle.style.fontSize = "2.4rem";
-        articleTitle.style.padding = "0 10vw"
+        articleTitle.className = "article-title narrow";
         articleInfo.style.width = "80%";
-        articleContent.style.width = "80%";
+        articleContent.className = "article-content narrow";
         recommendedArticle.style.width = "80%";
     } else if (windowWidth < 512) {
-        articleTitle.style.fontSize = "1.8rem";
-        articleTitle.style.padding = "0 5vw"
+        articleTitle.className = "article-title super-narrow";
         articleInfo.style.width = "90%";
-        articleContent.style.width = "80%";
+        articleContent.className = "article-content super-narrow";
         recommendedArticle.style.width = "80%";
     }
 }
