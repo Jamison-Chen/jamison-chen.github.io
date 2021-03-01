@@ -1,6 +1,7 @@
 :root {
     --bgc: #fdfaf3;
     --fontColor: #111;
+    --titleColor: #2d1400;
     --lightGray: #bbb;
     color: var(--fontColor);
 }
@@ -34,17 +35,6 @@ a {
     text-decoration: none;
 }
 
-
-/* a::before {
-    content: "";
-    width: 100%;
-    height: 40%;
-    background-color: #0000a0;
-    opacity: 20%;
-    position: absolute;
-    bottom: 0;
-} */
-
 a:hover {
     color: #000;
 }
@@ -60,12 +50,36 @@ ul {
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
     font-family: "微軟正黑體", sans-serif;
     background-color: var(--bgc);
+}
+
+body.waiting {
+    justify-content: center;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        /* rotate: 360deg; */
+        transform: rotate(360deg);
+    }
+}
+
+#waiting-frame {
+    width: 20px;
+    height: 20px;
+    background-color: var(--titleColor);
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 #content {
@@ -96,7 +110,7 @@ body {
     font-weight: 500;
     letter-spacing: 2px;
     margin: 100px 0 30px 0;
-    color: #2d1400;
+    color: var(--titleColor);
 }
 
 #mw-content-text {

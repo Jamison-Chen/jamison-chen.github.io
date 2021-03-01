@@ -11,12 +11,16 @@ let contentsList: HTMLElement | null;
 const wikiUrl: string = window.location.href.split("/view/?url=")[1];
 
 function main(): void {
+    if (body != null) {
+        body.className = "waiting";
+    }
     fetch(`https://wiki-scraper.herokuapp.com/fetchContent?url=${wikiUrl}`)
         .then(function (response) {
             return response.json();
         })
         .then(function (myJson) {
             if (body != null) {
+                body.className = "normal";
                 body.innerHTML = myJson["body"];
                 changeDOMStructure();
                 applyRWD();
