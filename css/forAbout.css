@@ -1,54 +1,81 @@
+@media screen and (min-width:950px) {
+     :root {
+        --w: 50%;
+        --columnWay: [column] 16% [column] 16% [column] 16% [column] 16% [column] 16% [column] 16%;
+        --mainCardHeight: 240px;
+        --cardWordFontSize: 1rem;
+        --cardWordMargin: 10px 0 10px 15%;
+        --maskFontSize: 1.4rem;
+    }
+    #fundamental-info {
+        grid-column: column / span 2;
+        grid-row: row;
+    }
+    #specialization {
+        grid-column: column 3 / span 4;
+        grid-row: row;
+    }
+    #work-experience {
+        grid-column: column / span 4;
+        grid-row: row 2;
+    }
+    #contact {
+        grid-column: column 5 / span 2;
+        grid-row: row 2;
+    }
+}
+
+@media screen and (min-width:680px) and (max-width:950px) {
+     :root {
+        --w: 60%;
+        --columnWay: repeat(auto-fit, minmax(200px, 1fr));
+        --mainCardHeight: 240px;
+        --cardWordFontSize: 0.9rem;
+        --cardWordMargin: 5px 0 5px 15%;
+        --maskFontSize: 1.3rem;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:680px) {
+     :root {
+        --w: 80%;
+        --columnWay: repeat(auto-fit, minmax(180px, 1fr));
+        --mainCardHeight: 270px;
+        --cardWordFontSize: 0.8rem;
+        --cardWordMargin: 5px 0 5px 15%;
+        --maskFontSize: 1.2rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+     :root {
+        --w: 80%;
+        --columnWay: repeat(auto-fit, minmax(140px, 1fr));
+        --mainCardHeight: 300px;
+        --cardWordFontSize: 0.8rem;
+        --cardWordMargin: 5px 0 5px 15%;
+        --maskFontSize: 1rem;
+    }
+}
+
 .home-header {
     height: 20vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
 }
 
 .card-grid {
     display: grid;
     gap: 0.8%;
-}
-
-.card-grid.wide {
-    grid-template-columns: [column] 16% [column] 16% [column] 16% [column] 16% [column] 16% [column] 16%;
+    grid-template-columns: var(--columnWay);
     grid-template-rows: [row] auto [row];
     min-width: fit-content;
-}
-
-#fundamental-info.wide {
-    grid-column: column / span 2;
-    grid-row: row;
-}
-
-#specialization.wide {
-    grid-column: column 3 / span 4;
-    grid-row: row;
-}
-
-#work-experience.wide {
-    grid-column: column / span 4;
-    grid-row: row 2;
-}
-
-#contact.wide {
-    grid-column: column 5 / span 2;
-    grid-row: row 2;
-}
-
-.card-grid.narrow {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.card-grid.super-narrow {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    width: var(--w);
 }
 
 .main-card {
     position: relative;
+    height: var(--mainCardHeight);
     padding: 0;
     overflow: hidden;
-    color: #fff;
     border-radius: 3px;
     letter-spacing: 2px;
     transition-duration: 300ms;
@@ -56,46 +83,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-}
-
-.main-card.wide,
-.main-card.narrow {
-    height: 240px;
-}
-
-.main-card.super-narrow {
-    height: 310px;
-}
-
-.main-card:hover {
     color: #444;
 }
 
-.card-word.wide {
+.card-word {
     word-wrap: break-word;
-}
-
-.card-word.wide {
-    margin: 10px 0 10px 15%;
-    font-size: 1rem;
-}
-
-.card-word.narrow {
-    margin: 5px 0 5px 15%;
-    font-size: 0.9rem;
-}
-
-.card-word.super-narrow {
-    margin: 5px 0 5px 15%;
-    font-size: 0.8rem;
+    font-size: var(--cardWordFontSize);
+    margin: var(--cardWordMargin);
 }
 
 #my-img {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
     transition-duration: 300ms;
+}
+
+#my-img:hover {
+    opacity: 0%;
 }
 
 .mask {
@@ -104,20 +111,17 @@
     left: 0;
     margin: 0;
     background-color: #000;
+    color: #fff;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    transition-duration: 300ms;
-    font-size: 1.4rem;
+    font-size: var(--maskFontSize);
     font-weight: 100;
     overflow: hidden;
-}
-
-.mask.super-narrow {
-    font-size: 1rem;
+    transition-duration: 300ms;
 }
 
 #contact>.card-word {
