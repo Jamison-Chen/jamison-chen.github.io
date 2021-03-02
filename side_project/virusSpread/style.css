@@ -201,38 +201,59 @@ input {
 }
 
 #simulate-btn {
-    margin: auto 0;
+    position: relative;
+    --w: 20px;
+    --h: 20px;
+    width: var(--w);
+    height: var(--h);
+    background-color: transparent;
+    transition-duration: 300ms;
 }
 
-#simulate-btn:hover {
-    opacity: 80%;
-}
-
-.start-simulate-btn {
-    width: 0;
+#simulate-btn::before,
+#simulate-btn::after {
+    content: "";
+    position: absolute;
+    --pauseWidth: 4px;
+    --pauseHeight: calc(var(--h) - var(--startTopSpace) * 2);
+    width: var(--pauseWidth);
     height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 16px solid #fff;
-    padding: 0px 0px 0px 4px;
+    --startTopSpace: 2px;
+    --startLeftSpace: 4px;
+    --pauseTopSpace: 0px;
+    top: var(--startTopSpace);
+    border-style: solid;
+    border-width: 0 0 var(--pauseHeight) 0;
+    transition-duration: 300ms;
 }
 
-.pause-simulate-btn {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#simulate-btn::before {
+    left: var(--startLeftSpace);
+    border-color: #fff rgba(255, 255, 255, 0) #fff rgba(255, 255, 255, 0);
 }
 
-.pause-simulate-btn::before,
-.pause-simulate-btn::after {
-    content: '';
-    width: 5px;
-    height: 15px;
-    background-color: #fff;
-    margin: 0 2px;
+#simulate-btn::after {
+    left: calc(var(--w) - var(--startLeftSpace) - var(--pauseWidth));
+    border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) #fff #fff;
+}
+
+#simulate-btn.start-simulate-btn::before,
+#simulate-btn.start-simulate-btn::after {
+    left: 8px;
+    width: 0;
+    --sx: 2;
+    --sy: 1.25;
+    transform: scale(var(--sx), var(--sy)) rotate(90deg);
+}
+
+#simulate-btn.start-simulate-btn::before {
+    top: var(--pauseTopSpace);
+    border-width: 0 0 calc(var(--pauseHeight) / var(--sx)) calc((var(--h) / 2 - var(--pauseTopSpace)) / var(--sy));
+}
+
+#simulate-btn.start-simulate-btn::after {
+    top: calc(var(--h) / 2 + var(--pauseTopSpace));
+    border-width: 0 calc(var(--pauseHeight) / var(--sx)) calc((var(--h) / 2 - var(--pauseTopSpace)) / var(--sy)) 0;
 }
 
 #stop-btn {
