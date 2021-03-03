@@ -1,3 +1,24 @@
+@media screen and (min-width:1024px) {
+     :root {
+        --headerHeight: 40vh;
+        --btnGridWidth: 55%;
+    }
+}
+
+@media screen and (min-width:512px) and (max-width:1024px) {
+     :root {
+        --headerHeight: 35vh;
+        --btnGridWidth: 70%;
+    }
+}
+
+@media screen and (max-width:512px) {
+     :root {
+        --headerHeight: 30vh;
+        --btnGridWidth: 90%;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     cursor: default;
@@ -17,7 +38,7 @@ body {
 }
 
 .home-header {
-    height: 40vh;
+    height: var(--headerHeight);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -68,6 +89,7 @@ a {
 
 .btn-grid {
     display: grid;
+    width: var(--btnGridWidth);
     gap: 0.5rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: stretch;
@@ -103,4 +125,8 @@ a {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+}
+
+#btn-bar {
+    padding-bottom: 20px;
 }
