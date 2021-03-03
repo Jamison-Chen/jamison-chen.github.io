@@ -1,11 +1,11 @@
 "use strict";
-const title = document.getElementById("title");
-const subTitle = document.getElementById("sub-title");
+// const title: HTMLElement | null = document.getElementById("title");
+// const subTitle: HTMLElement | null = document.getElementById("sub-title");
 const searchBtn = document.getElementById("search-btn");
 const inputUrl = document.getElementById("search-bar");
 const hint = document.getElementById("hint");
-applyrwd();
-window.addEventListener("resize", applyrwd);
+// applyrwd();
+// window.addEventListener("resize", applyrwd);
 window.addEventListener("keyup", search);
 if (searchBtn != null) {
     searchBtn.addEventListener("click", search);
@@ -36,20 +36,12 @@ function checkInputUrl() {
     }
     return true;
 }
-function applyrwd() {
-    let windowWidth = window.innerWidth;
-    if (title != null && subTitle != null) {
-        if (1024 <= windowWidth) {
-            title.className = "wide";
-            subTitle.className = "wide";
-        }
-        else if (512 <= windowWidth && windowWidth < 1024) {
-            title.className = "narrow";
-            subTitle.className = "narrow";
-        }
-        else if (windowWidth < 512) {
-            title.className = "super-narrow";
-            subTitle.className = "super-narrow";
-        }
-    }
-}
+// function applyrwd(): void {
+//     let windowWidth = window.innerWidth;
+//     if (title != null && subTitle != null) {
+//         if (1024 <= windowWidth) {
+//         } else if (512 <= windowWidth && windowWidth < 1024) {
+//         } else if (windowWidth < 512) {
+//         }
+//     }
+// }

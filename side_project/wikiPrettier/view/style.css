@@ -6,6 +6,30 @@
     color: var(--fontColor);
 }
 
+@media screen and (min-width:1024px) {
+     :root {
+        --contentsListMaxWidth: 30vw;
+        --contentWidth: 60%;
+        --fontSize: 3rem;
+    }
+}
+
+@media screen and (min-width:512px) and (max-width:1024px) {
+     :root {
+        --contentsListMaxWidth: 50vw;
+        --contentWidth: 80%;
+        --fontSize: 3rem;
+    }
+}
+
+@media screen and (max-width:512px) {
+     :root {
+        --contentsListMaxWidth: 90vw;
+        --contentWidth: 85%;
+        --fontSize: 2.7rem;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     cursor: default;
@@ -84,21 +108,7 @@ body.waiting {
 
 #content {
     margin: 10px;
-}
-
-#content.wide {
-    --fonSize: 3rem;
-    width: 60%;
-}
-
-#content.narrow {
-    --fonSize: 3rem;
-    width: 80%;
-}
-
-#content.super-narrow {
-    --fonSize: 2.7rem;
-    width: 85%;
+    width: var(--contentWidth);
 }
 
 #firstHeading {
@@ -106,7 +116,7 @@ body.waiting {
     flex-direction: column;
     text-align: center;
     font-family: 'Times New Roman', "微軟正黑體";
-    font-size: var(--fonSize);
+    font-size: var(--fontSize);
     font-weight: 500;
     letter-spacing: 2px;
     margin: 100px 0 30px 0;
@@ -114,7 +124,7 @@ body.waiting {
 }
 
 #mw-content-text {
-    font-size: calc(var(--fonSize) * 1 / 3);
+    font-size: calc(var(--fontSize) * 1 / 3);
     text-align: justify;
     text-justify: inter-ideograph;
     letter-spacing: 1px;
@@ -200,20 +210,12 @@ body.waiting {
     height: 100vh;
     background-color: var(--bgc);
     word-wrap: break-word;
-    font-size: calc(var(--fonSize) * 1 / 3);
+    font-size: calc(var(--fontSize) * 1 / 3);
     z-index: 1000;
 }
 
-#toc.expand.wide {
-    max-width: 30vw;
-}
-
-#toc.expand.narrow {
-    max-width: 50vw;
-}
-
-#toc.expand.super-narrow {
-    max-width: 90vw;
+#toc.expand {
+    max-width: var(--contentsListMaxWidth);
 }
 
 #toc.fold {
@@ -286,12 +288,12 @@ body.waiting {
 }
 
 .hatnote {
-    font-size: calc(var(--fonSize) * 1 / 4);
+    font-size: calc(var(--fontSize) * 1 / 4);
     letter-spacing: 0px;
     line-height: 1.8rem;
 }
 
 .reference {
-    font-size: calc(var(--fonSize) * 1 / 4);
+    font-size: calc(var(--fontSize) * 1 / 4);
     letter-spacing: 0px;
 }

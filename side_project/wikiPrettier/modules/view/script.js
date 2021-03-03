@@ -28,7 +28,7 @@ function main() {
     });
 }
 function changeDOMStructure() {
-    var _a;
+    var _a, _b;
     pageTop = document.getElementById("top");
     content = document.getElementById("content");
     firstHeading = document.getElementById("firstHeading");
@@ -103,6 +103,9 @@ function changeDOMStructure() {
             (_a = each.parentElement) === null || _a === void 0 ? void 0 : _a.removeChild(each);
         }
     }
+    // remove data after content
+    const dataAfterContent = document.getElementById("mw-data-after-content");
+    (_b = dataAfterContent === null || dataAfterContent === void 0 ? void 0 : dataAfterContent.parentElement) === null || _b === void 0 ? void 0 : _b.removeChild(dataAfterContent);
     // other changes
     if (webPageTitle != null && (firstHeading === null || firstHeading === void 0 ? void 0 : firstHeading.innerText) != null) {
         webPageTitle.innerHTML = firstHeading.innerText;
@@ -173,29 +176,15 @@ function foldContentsLst(e) {
     }
 }
 function applyRWD() {
-    let windowWidth = window.innerWidth;
+    // let windowWidth = window.innerWidth;
     if (body != null) {
         body.style.width = `${window.innerWidth - 20}`;
     }
-    if (content != null) {
-        if (1024 <= windowWidth) {
-            content.className = "wide";
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.remove("narrow");
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.remove("super-narrow");
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.add("wide");
-        }
-        else if (512 <= windowWidth && windowWidth < 1024) {
-            content.className = "narrow";
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.remove("wide");
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.remove("super-narrow");
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.add("narrow");
-        }
-        else if (windowWidth < 512) {
-            content.className = "super-narrow";
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.remove("wide");
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.remove("narrow");
-            contentsList === null || contentsList === void 0 ? void 0 : contentsList.classList.add("super-narrow");
-        }
-    }
+    // if (content != null) {
+    //     if (1024 <= windowWidth) {
+    //     } else if (512 <= windowWidth && windowWidth < 1024) {
+    //     } else if (windowWidth < 512) {
+    //     }
+    // }
 }
 main();

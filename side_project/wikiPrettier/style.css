@@ -1,7 +1,38 @@
 :root {
     --titleColor: #2d1400;
     --bgc: #fdfaf3;
-    --titleFontSize: 4.8rem;
+}
+
+@media screen and (min-width:1024px) {
+     :root {
+        --titleFontSize: 4.8rem;
+    }
+    #sub-title>span {
+        font-size: 0.9rem;
+        margin: 0 6px;
+    }
+}
+
+@media screen and (min-width:512px) and (max-width:1024px) {
+     :root {
+        --titleFontSize: 3.8rem;
+    }
+    #sub-title>span {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        margin: 0 5px;
+    }
+}
+
+@media screen and (max-width:512px) {
+     :root {
+        --titleFontSize: 3.2rem;
+    }
+    #sub-title>span {
+        font-size: 0.7rem;
+        letter-spacing: 0.4px;
+        margin: 0 2px;
+    }
 }
 
 ::selection {
@@ -51,18 +82,7 @@ body {
 
 #title {
     margin: 20px 0;
-}
-
-#title.wide {
     font-size: var(--titleFontSize);
-}
-
-#title.narrow {
-    font-size: calc(var(--titleFontSize) - 1rem);
-}
-
-#title.super-narrow {
-    font-size: calc(var(--titleFontSize) - 1.6rem);
 }
 
 #sub-title {
@@ -70,25 +90,7 @@ body {
     justify-content: center;
 }
 
-#sub-title.wide>span {
-    font-size: 0.9rem;
-    margin: 0 6px;
-}
-
-#sub-title.narrow>span {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    margin: 0 5px;
-}
-
-#sub-title.super-narrow>span {
-    font-size: 0.7rem;
-    letter-spacing: 0.4px;
-    margin: 0 2px;
-}
-
 #search {
-    /* width: fit-content; */
     width: 100%;
     display: flex;
     justify-content: center;

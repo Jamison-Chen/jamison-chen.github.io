@@ -112,6 +112,9 @@ function changeDOMStructure(): void {
         }
     }
 
+    // remove data after content
+    const dataAfterContent = document.getElementById("mw-data-after-content");
+    dataAfterContent?.parentElement?.removeChild(dataAfterContent);
 
     // other changes
     if (webPageTitle != null && firstHeading?.innerText != null) {
@@ -188,28 +191,16 @@ function foldContentsLst(e: Event): void {
 }
 
 function applyRWD(): void {
-    let windowWidth = window.innerWidth;
+    // let windowWidth = window.innerWidth;
     if (body != null) {
         body.style.width = `${window.innerWidth - 20}`;
     }
-    if (content != null) {
-        if (1024 <= windowWidth) {
-            content.className = "wide";
-            contentsList?.classList.remove("narrow");
-            contentsList?.classList.remove("super-narrow");
-            contentsList?.classList.add("wide");
-        } else if (512 <= windowWidth && windowWidth < 1024) {
-            content.className = "narrow";
-            contentsList?.classList.remove("wide");
-            contentsList?.classList.remove("super-narrow");
-            contentsList?.classList.add("narrow");
-        } else if (windowWidth < 512) {
-            content.className = "super-narrow";
-            contentsList?.classList.remove("wide");
-            contentsList?.classList.remove("narrow");
-            contentsList?.classList.add("super-narrow");
-        }
-    }
+    // if (content != null) {
+    //     if (1024 <= windowWidth) {
+    //     } else if (512 <= windowWidth && windowWidth < 1024) {
+    //     } else if (windowWidth < 512) {
+    //     }
+    // }
 }
 
 main();
