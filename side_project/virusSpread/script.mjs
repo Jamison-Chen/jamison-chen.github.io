@@ -1,4 +1,10 @@
 import { Dot } from './modules/dot.mjs';
+const simulateBtn = document.getElementById("simulate-btn");
+const pullUpBtn = document.getElementById("pull-up-btn");
+const pullDownBtn = document.getElementById("pull-down-btn");
+const selectModePage = document.getElementById("select-mode-page");
+const mainDiv = document.getElementById("main");
+
 // let mouseIsDown;
 let allDotObjs;
 let peopleSize;
@@ -21,7 +27,6 @@ let waitTime = 100;
 let infectedPossibility = 80;
 controlPanelSetUp();
 
-
 let virusPower;
 let socialDistance;
 let recoverDay;
@@ -43,45 +48,46 @@ function addSelectModeEL() {
             checkSelectMode();
         });
     }
-    document.getElementById("pull-up-btn").addEventListener("click", e => {
-        document.getElementById("select-mode-page").style.top = "-100%";
-        document.getElementById("pull-up-btn").style.bottom = "-10%";
-        document.getElementById("pull-down-btn").style.top = "0%";
+    pullUpBtn.addEventListener("click", e => {
+        selectModePage.style.top = "-100%";
+        pullUpBtn.style.bottom = "-10%";
+        pullDownBtn.style.top = "0%";
     });
-    document.getElementById("pull-down-btn").addEventListener("click", e => {
-        document.getElementById("select-mode-page").style.top = "0%";
-        document.getElementById("pull-up-btn").style.bottom = "10%";
-        document.getElementById("pull-down-btn").style.top = "-10%";
+    pullDownBtn.addEventListener("click", e => {
+        selectModePage.style.top = "0%";
+        pullUpBtn.style.bottom = "10%";
+        pullDownBtn.style.top = "-10%";
     });
     setSlider("go-rate-scrl-bar", 1, 100, "goToCenterRate");
 }
 
 function checkSelectMode() {
     if (mode) {
-        document.getElementById("pull-up-btn").style.bottom = "10%";
+        pullUpBtn.style.bottom = "10%";
         // only for look
         initCenterDiv();
     } else {
-        document.getElementById("pull-up-btn").style.bottom = "-10%";
+        pullUpBtn.style.bottom = "-10%";
     }
 }
 
 function setSlider(elementId, minVal, maxVal, targetVar) {
-    document.getElementById(elementId).min = minVal;
-    document.getElementById(elementId).max = maxVal;
-    document.getElementById(elementId).value = eval(targetVar);
-    document.getElementById(elementId).previousElementSibling.children.item(1).value = eval(targetVar);
-    document.getElementById(elementId).addEventListener("input", function() {
-        eval(targetVar + "=" + document.getElementById(elementId).value);
-        document.getElementById(elementId).previousElementSibling.children.item(1).value =
-            document.getElementById(elementId).value;
+    let elDiv = document.getElementById(elementId);
+    elDiv.min = minVal;
+    elDiv.max = maxVal;
+    elDiv.value = eval(targetVar);
+    elDiv.previousElementSibling.children.item(1).value = eval(targetVar);
+    elDiv.addEventListener("input", function() {
+        eval(targetVar + "=" + elDiv.value);
+        elDiv.previousElementSibling.children.item(1).value =
+            elDiv.value;
     });
 }
 
 function initCenterDiv() {
     if (mode == "center") {
         let centerDiv = document.createElement("div");
-        document.getElementById("main").appendChild(centerDiv);
+        mainDiv.appendChild(centerDiv);
         centerDiv.className = "center";
         centerDiv.id = "center";
         centerDiv.style.height = "10vh";
@@ -91,7 +97,7 @@ function initCenterDiv() {
         centerDiv.style.left = "45%";
         centerDiv.style.border = "1px solid #fff";
     } else {
-        document.getElementById("main").removeChild(document.getElementById("center"));
+        mainDiv.removeChild(document.getElementById("center"));
     }
 }
 
@@ -113,13 +119,12 @@ function controlPanelSetUp() {
 
     setSlider("wait-time-scrl-bar", 50, 1000, "waitTime");
 
-    document.getElementById("simulate-btn").addEventListener("click", toSetUp);
+    simulateBtn.addEventListener("click", toSetUp);
 }
 
 function toSetUp() {
-    let myNode = document.getElementById("main");
-    while (myNode.lastElementChild) {
-        myNode.removeChild(myNode.lastElementChild);
+    while (mainDiv.lastElementChild) {
+        mainDiv.removeChild(mainDiv.lastElementChild);
     }
     for (let i = 0; i < document.getElementsByClassName("scrl-bar").length; i++) {
         document.getElementsByClassName("scrl-bar")[i].disabled = true;
@@ -228,7 +233,7 @@ function initDotDOM(aDotObj, i) {
     inside.style.left = `${(socialDistance-peopleSize)/2}px`;
     inside.style.top = `${(socialDistance-peopleSize)/2}px`;
     dotDiv.appendChild(inside);
-    document.getElementById("main").appendChild(dotDiv);
+    mainDiv.appendChild(dotDiv);
 }
 
 function getInfected(aDotObj, i) {
@@ -262,9 +267,9 @@ function addEachEL(aDotDiv) {
 }
 
 function elAddOnce() {
-    document.getElementById("simulate-btn").removeEventListener("click", toSetUp);
-    document.getElementById("simulate-btn").className = "pause-simulate-btn";
-    document.getElementById("simulate-btn").addEventListener("click", toPause);
+    simulateBtn.removeEventListener("click", toSetUp);
+    simulateBtn.className = "pause-simulate-btn";
+    simulateBtn.addEventListener("click", toPause);
     document.getElementById("stop-btn").addEventListener("click", function() {
         location.reload();
     });
@@ -282,10 +287,10 @@ function elAddOnce() {
 function toPause() {
     stopSimulation = !stopSimulation;
     if (!stopSimulation) {
-        document.getElementById("simulate-btn").className = "pause-simulate-btn";
+        simulateBtn.className = "pause-simulate-btn";
         moveAllDots();
     } else {
-        document.getElementById("simulate-btn").className = "start-simulate-btn";
+        simulateBtn.className = "start-simulate-btn";
     }
 }
 
@@ -367,11 +372,8 @@ function infectionRecord() {
                 }
             }
         }
-        // console.log(typeof(hasGotInfected));
-        // console.log(typeof(newRecord));
         hasGotInfected += newRecord;
         infectedNum = currentInfectedNum;
-        // console.log(typeof(hasGotInfected));
         updateChart(parseInt(day + 0.1), newRecord, infectedNum, hasGotInfected);
     }
     if (infectedNum == 0) prepareToRestart();
@@ -383,8 +385,8 @@ function prepareToRestart() {
     for (let i = 0; i < document.getElementsByClassName("scrl-bar").length; i++) {
         document.getElementsByClassName("scrl-bar")[i].disabled = false;
     }
-    document.getElementById("simulate-btn").className = "start-simulate-btn";
-    document.getElementById("simulate-btn").addEventListener("click", toSetUp);
+    simulateBtn.className = "start-simulate-btn";
+    simulateBtn.addEventListener("click", toSetUp);
 }
 
 function chaseAway(anEvent) {

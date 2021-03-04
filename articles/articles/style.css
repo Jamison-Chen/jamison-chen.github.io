@@ -2,29 +2,14 @@
     --w: 100vw;
 }
 
-
-/* body {
-    perspective: 100px;
-    transform-style: preserve-3d;
-} */
-
 .main-img-container {
     width: 100%;
     height: calc(var(--w)*0.45);
     position: relative;
     overflow: hidden;
-    background-image: url(../images/test.jpg);
     background-size: 100%;
     background-attachment: fixed;
-    /* perspective: 100px; */
 }
-
-
-/* .main-img-container img {
-    width: 100%;
-    position: absolute;
-    top: -40%;
-} */
 
 #article-title {
     position: absolute;
