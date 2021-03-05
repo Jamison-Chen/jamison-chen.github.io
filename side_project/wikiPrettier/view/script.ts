@@ -1,4 +1,5 @@
-const body: HTMLElement | null = document.getElementById("body");
+const body = document.getElementById("body");
+const fetchedContentContainer = document.getElementById("fetched-content-container");
 const webPageTitle: HTMLElement | null = document.getElementById("web-page-title");
 let pageTop: HTMLElement | null;
 let content: HTMLElement | null;
@@ -7,6 +8,10 @@ let bodyContent: HTMLElement | null;
 let contentText: HTMLElement | null;
 let sideBarsAndInfoBoxes: NodeListOf<Element> | null;
 let contentsList: HTMLElement | null;
+let contentsListToggle: HTMLElement | null;
+let allHeadlines: HTMLCollectionOf<Element> | null;
+let lastCorrenpondingAnchor: HTMLElement | null;
+let allComponents: HTMLCollectionOf<Element> | null;
 
 const wikiUrl: string = window.location.href.split("/view/?url=")[1];
 
@@ -19,17 +24,21 @@ function main(): void {
             return response.json();
         })
         .then(function (myJson) {
-            if (body != null) {
+            if (body != null && fetchedContentContainer != null) {
                 body.className = "normal";
-                body.innerHTML = myJson["body"];
-                changeDOMStructure();
-                applyRWD();
-                window.addEventListener("resize", applyRWD);
+                fetchedContentContainer.innerHTML = myJson["body"];
+                modifyDOMStructure();
+                // placeAllComponents after modifyDOMStructure because modifyDOMStructure do remove all style tag
+                // but some components might have their own style setting written in style tag.
+                placeAllComponents();
+                // applyRWD();
+                // window.addEventListener("resize", applyRWD);
+                window.addEventListener("scroll", makeCorrespoingAnchorBold);
+                window.addEventListener("click", clickContentsListToggle);
             }
         });
 }
-
-function changeDOMStructure(): void {
+function modifyDOMStructure(): void {
     pageTop = document.getElementById("top");
     content = document.getElementById("content");
     firstHeading = document.getElementById("firstHeading");
@@ -37,6 +46,48 @@ function changeDOMStructure(): void {
     contentText = document.getElementById("mw-content-text");
     sideBarsAndInfoBoxes = document.querySelectorAll(".sidebar, .infobox");
     contentsList = document.getElementById("toc");
+    allHeadlines = document.getElementsByClassName("mw-headline");
+
+    // remove all unnecessary parts
+    const allWeiredNavbars = document.getElementsByClassName("navbar");
+    while (allWeiredNavbars.length != 0) {
+        for (let each of allWeiredNavbars) {
+            each.parentElement?.removeChild(each);
+        }
+    }
+    const printfooter = document.getElementsByClassName("printfooter");
+    while (printfooter.length != 0) {
+        for (let each of printfooter) {
+            each.parentElement?.removeChild(each);
+        }
+    }
+    let catlinks = document.getElementById("catlinks");
+    catlinks?.parentElement?.removeChild(catlinks);
+
+    // remove all parts after external link
+    let externalLink = document.querySelector("#External_links, #外部連結");
+    let externalLinkID = externalLink?.id;
+    if (externalLink instanceof HTMLElement && externalLink.parentElement != null) {
+        while (externalLink != null && externalLink.tagName != "H2") {
+            externalLink = externalLink.parentElement;
+        }
+    }
+    while (externalLink != null) {
+        let next = externalLink.nextElementSibling;
+        externalLink.parentElement?.removeChild(externalLink);
+        externalLink = next;
+    }
+    let externalLinkAnchor = document.querySelector(`#toc a[href='#${externalLinkID}']`);
+    if (externalLinkAnchor instanceof HTMLElement && externalLinkAnchor.parentElement != null) {
+        while (externalLinkAnchor != null && externalLinkAnchor.tagName != "LI") {
+            externalLinkAnchor = externalLinkAnchor.parentElement;
+        }
+    }
+    while (externalLinkAnchor != null) {
+        let next = externalLinkAnchor.nextElementSibling;
+        externalLinkAnchor.parentElement?.removeChild(externalLinkAnchor);
+        externalLinkAnchor = next;
+    }
 
     // remove all style tag
     let allStyleTags = document.getElementsByTagName("style");
@@ -85,18 +136,18 @@ function changeDOMStructure(): void {
 
     // change content list into side bar
     if (content != null && contentsList != null && contentsList.parentElement != null) {
-        let toggle = document.getElementById("toctogglecheckbox");
-        if (toggle != null) {
-            contentsList.removeChild(toggle);
+        let oldToggle = document.getElementById("toctogglecheckbox");
+        if (oldToggle != null) {
+            contentsList.removeChild(oldToggle);
         }
-        toggle = document.createElement("div");
-        toggle.id = "contents-list-toggle";
-        toggle.className = "to-expand";
-        toggle.addEventListener("click", expandContentsList);
+        contentsListToggle = document.createElement("div");
+        contentsListToggle.id = "contents-list-toggle";
+        contentsListToggle.className = "to-expand";
+        contentsListToggle.addEventListener("click", expandContentsList);
 
         const outerDiv = document.createElement("div");
         outerDiv.innerHTML = contentsList.innerHTML;
-        outerDiv.appendChild(toggle);
+        outerDiv.appendChild(contentsListToggle);
         contentsList.innerHTML = "";
         contentsList.appendChild(outerDiv);
         contentsList.classList.add("fold");
@@ -113,16 +164,16 @@ function changeDOMStructure(): void {
     }
 
     // remove data after content
-    const dataAfterContent = document.getElementById("mw-data-after-content");
-    dataAfterContent?.parentElement?.removeChild(dataAfterContent);
+    // const dataAfterContent = document.getElementById("mw-data-after-content");
+    // dataAfterContent?.parentElement?.removeChild(dataAfterContent);
 
     // other changes
     if (webPageTitle != null && firstHeading?.innerText != null) {
         webPageTitle.innerHTML = firstHeading.innerText;
     }
-    if (body != null && content != null) {
-        body.innerHTML = "";
-        body.appendChild(content);
+    if (fetchedContentContainer != null && content != null) {
+        fetchedContentContainer.innerHTML = "";
+        fetchedContentContainer.appendChild(content);
     }
     if (pageTop != null && firstHeading != null) {
         pageTop.innerHTML = "";
@@ -172,7 +223,6 @@ function expandContentsList(e: Event): void {
         e.target.removeEventListener("click", expandContentsList);
         e.target.addEventListener("click", foldContentsLst);
         // if (contentsList.classList.contains("wide") || contentsList.classList.contains("narrow")) {
-        contentsList.classList.remove("fold");
         contentsList.classList.add("expand");
         // }
     }
@@ -185,22 +235,83 @@ function foldContentsLst(e: Event): void {
         e.target.addEventListener("click", expandContentsList);
         // if (contentsList.classList.contains("wide") || contentsList.classList.contains("narrow")) {
         contentsList.classList.remove("expand");
-        contentsList.classList.add("fold");
         // }
     }
 }
 
-function applyRWD(): void {
-    // let windowWidth = window.innerWidth;
-    if (body != null) {
-        body.style.width = `${window.innerWidth - 20}`;
+function placeAllComponents(): void {
+    allComponents = document.getElementsByClassName("component");
+    for (let each of allComponents) {
+        if (each instanceof HTMLElement) {
+            include(each);
+        }
     }
-    // if (content != null) {
-    //     if (1024 <= windowWidth) {
-    //     } else if (512 <= windowWidth && windowWidth < 1024) {
-    //     } else if (windowWidth < 512) {
-    //     }
-    // }
 }
+
+function include(el: HTMLElement) {
+    let url = el.getAttribute("data-include");
+    let localTest = /^(?:file):/;
+    let XMLHttp = new XMLHttpRequest();
+    let status = 0;
+    XMLHttp.onreadystatechange = function () {
+        if (XMLHttp.readyState == 4) {
+            status = XMLHttp.status;
+        }
+        if (localTest.test(location.href) && XMLHttp.responseText) {
+            status = 200;
+        }
+        if (XMLHttp.readyState == 4 && status == 200) {
+            el.outerHTML = XMLHttp.responseText;
+        }
+    }
+    try {
+        if (url != null) {
+            XMLHttp.open("GET", url, true);
+        }
+        XMLHttp.send();
+    } catch (err) {
+        console.log("Failed to load components.");
+    }
+}
+
+function makeCorrespoingAnchorBold(e: Event): void {
+    if (allHeadlines != null) {
+        let minDistanceToPageTop = Infinity;
+        let closestHeadline: Element | null = null;
+        for (let each of allHeadlines) {
+            let distanceToPageTop = Math.abs(each.getBoundingClientRect().top);
+            if (distanceToPageTop < minDistanceToPageTop) {
+                minDistanceToPageTop = distanceToPageTop;
+                closestHeadline = each;
+            }
+        }
+        let correnpondingAnchor = document.querySelector(`#toc a[href='#${closestHeadline?.id}']`);
+        if (lastCorrenpondingAnchor != null) {
+            lastCorrenpondingAnchor.classList.remove("on");
+        }
+        if (correnpondingAnchor instanceof HTMLElement) {
+            correnpondingAnchor.classList.add("on");
+            lastCorrenpondingAnchor = correnpondingAnchor;
+        }
+    }
+}
+
+function clickContentsListToggle(e: Event): void {
+    if (e.target instanceof HTMLElement) {
+        if (e.target.className == "toctext" && contentsListToggle != null) {
+            contentsListToggle.click();
+        }
+    }
+}
+
+// function applyRWD(): void {
+// let windowWidth = window.innerWidth;
+// if (content != null) {
+//     if (1024 <= windowWidth) {
+//     } else if (512 <= windowWidth && windowWidth < 1024) {
+//     } else if (windowWidth < 512) {
+//     }
+// }
+// }
 
 main();
