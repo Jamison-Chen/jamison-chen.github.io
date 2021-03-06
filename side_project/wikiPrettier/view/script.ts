@@ -30,7 +30,7 @@ function main(): void {
                 modifyDOMStructure();
                 // placeAllComponents after modifyDOMStructure because modifyDOMStructure do remove all style tag
                 // but some components might have their own style setting written in style tag.
-                placeAllComponents();
+                // placeAllComponents();
                 // applyRWD();
                 // window.addEventListener("resize", applyRWD);
                 window.addEventListener("scroll", makeCorrespoingAnchorBold);
@@ -239,40 +239,40 @@ function foldContentsLst(e: Event): void {
     }
 }
 
-function placeAllComponents(): void {
-    allComponents = document.getElementsByClassName("component");
-    for (let each of allComponents) {
-        if (each instanceof HTMLElement) {
-            include(each);
-        }
-    }
-}
+// function placeAllComponents(): void {
+//     allComponents = document.getElementsByClassName("component");
+//     for (let each of allComponents) {
+//         if (each instanceof HTMLElement) {
+//             include(each);
+//         }
+//     }
+// }
 
-function include(el: HTMLElement) {
-    let url = el.getAttribute("data-include");
-    let localTest = /^(?:file):/;
-    let XMLHttp = new XMLHttpRequest();
-    let status = 0;
-    XMLHttp.onreadystatechange = function () {
-        if (XMLHttp.readyState == 4) {
-            status = XMLHttp.status;
-        }
-        if (localTest.test(location.href) && XMLHttp.responseText) {
-            status = 200;
-        }
-        if (XMLHttp.readyState == 4 && status == 200) {
-            el.outerHTML = XMLHttp.responseText;
-        }
-    }
-    try {
-        if (url != null) {
-            XMLHttp.open("GET", url, true);
-        }
-        XMLHttp.send();
-    } catch (err) {
-        console.log("Failed to load components.");
-    }
-}
+// function include(el: HTMLElement) {
+//     let url = el.getAttribute("data-include");
+//     let localTest = /^(?:file):/;
+//     let XMLHttp = new XMLHttpRequest();
+//     let status = 0;
+//     XMLHttp.onreadystatechange = function () {
+//         if (XMLHttp.readyState == 4) {
+//             status = XMLHttp.status;
+//         }
+//         if (localTest.test(location.href) && XMLHttp.responseText) {
+//             status = 200;
+//         }
+//         if (XMLHttp.readyState == 4 && status == 200) {
+//             el.outerHTML = XMLHttp.responseText;
+//         }
+//     }
+//     try {
+//         if (url != null) {
+//             XMLHttp.open("GET", url, true);
+//         }
+//         XMLHttp.send();
+//     } catch (err) {
+//         console.log("Failed to load components.");
+//     }
+// }
 
 function makeCorrespoingAnchorBold(e: Event): void {
     if (allHeadlines != null) {
