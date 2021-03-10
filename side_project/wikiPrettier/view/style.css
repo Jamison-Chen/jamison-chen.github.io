@@ -8,9 +8,16 @@
 
 @media screen and (min-width:1024px) {
      :root {
-        --contentsListMaxWidth: 30vw;
+        --contentsListMaxWidth: 25vw;
         --contentWidth: 60%;
         --fontSize: 3rem;
+    }
+    .side-bar {
+        display: grid;
+        width: 4vw;
+        gap: 0;
+        grid-template-columns: repeat(auto-fit, minmax(4vw, 1fr));
+        justify-items: stretch;
     }
 }
 
@@ -20,6 +27,9 @@
         --contentWidth: 80%;
         --fontSize: 3rem;
     }
+    .side-bar {
+        display: none;
+    }
 }
 
 @media screen and (max-width:512px) {
@@ -27,6 +37,9 @@
         --contentsListMaxWidth: 90vw;
         --contentWidth: 85%;
         --fontSize: 2.7rem;
+    }
+    .side-bar {
+        display: none;
     }
 }
 
@@ -85,6 +98,7 @@ body {
 }
 
 #fetched-content-container {
+    max-width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -139,12 +153,17 @@ body.normal>#waiting-frame {
     color: var(--titleColor);
 }
 
-#mw-content-text {
+#mw-content-text,
+.info-card.expand {
     font-size: calc(var(--fontSize) * 1 / 3);
     text-align: justify;
     text-justify: inter-ideograph;
     letter-spacing: 1px;
     line-height: 2.4rem;
+}
+
+#mw-content-text pre {
+    line-height: 1.8rem;
 }
 
 #mw-content-text p {
@@ -205,6 +224,7 @@ body.normal>#waiting-frame {
     display: flex;
     width: fit-content;
     min-width: 300px;
+    max-width: var(--contentWidth);
     height: fit-content;
     max-height: 80%;
     margin: 10% 0;
@@ -316,3 +336,30 @@ body.normal>#waiting-frame {
 .reflist~* {
     word-break: break-all;
 }
+
+
+/* .side-bar {
+    padding: 20px 0;
+    position: fixed;
+    border-radius: 500px;
+}
+
+#main-tool {
+    top: 40vh;
+    right: 8vw;
+    height: 20vh;
+    transform: translateY(-10vh);
+}
+
+#other-tool {
+    bottom: 0;
+    right: 8vw;
+    height: 14vh;
+    transform: translateY(-7vh);
+}
+
+.side-bar .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

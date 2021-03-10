@@ -12,6 +12,7 @@ let contentsListToggle: HTMLElement | null;
 let allHeadlines: HTMLCollectionOf<Element> | null;
 let lastCorrenpondingAnchor: HTMLElement | null;
 let allComponents: HTMLCollectionOf<Element> | null;
+let allMathExpressionss: NodeListOf<Element> | null;
 
 const wikiUrl: string = window.location.href.split("/view/?url=")[1];
 
@@ -44,7 +45,7 @@ function modifyDOMStructure(): void {
     firstHeading = document.getElementById("firstHeading");
     bodyContent = document.getElementById("bodyContent");
     contentText = document.getElementById("mw-content-text");
-    sideBarsAndInfoBoxes = document.querySelectorAll(".sidebar, .infobox");
+    sideBarsAndInfoBoxes = document.querySelectorAll(".navbox, .sidebar, .infobox, .box-More_footnotes, .box-Multiple_issues");
     contentsList = document.getElementById("toc");
     allHeadlines = document.getElementsByClassName("mw-headline");
 
@@ -163,6 +164,16 @@ function modifyDOMStructure(): void {
         }
     }
 
+    // make all math expression clean
+    allMathExpressionss = document.querySelectorAll(".mwe-math-element>img");
+    for (let each of allMathExpressionss) {
+        if (each.parentElement != null) {
+            const tempParent = each.parentElement;
+            tempParent.innerHTML = "";
+            tempParent.appendChild(each);
+        }
+    }
+
     // remove data after content
     // const dataAfterContent = document.getElementById("mw-data-after-content");
     // dataAfterContent?.parentElement?.removeChild(dataAfterContent);
@@ -191,7 +202,7 @@ function expandInfoCard(e: Event): void {
         e.target.addEventListener("click", foldInfoCard);
         e.target.className = "info-card expand";
         const containerShowed = e.target.querySelector(".container-showed");
-        const infoTable = containerShowed?.querySelector(".sidebar, .infobox");
+        const infoTable = e.target.querySelector(".navbox, .sidebar, .infobox, .box-More_footnotes, .box-Multiple_issues");
         if (containerShowed != null && infoTable instanceof HTMLElement) {
             containerShowed.className = "container-showed expand";
             infoTable.style.display = "table";
@@ -207,7 +218,7 @@ function foldInfoCard(e: Event): void {
         e.target.addEventListener("click", expandInfoCard);
         e.target.className = "info-card fold";
         const containerShowed = e.target.querySelector(".container-showed");
-        const info = containerShowed?.querySelector(".sidebar, .infobox");
+        const info = e.target.querySelector(".navbox, .sidebar, .infobox, .box-More_footnotes, .box-Multiple_issues");
         if (containerShowed != null && info instanceof HTMLElement) {
             containerShowed.className = "container-showed fold";
             info.style.display = "none";
@@ -312,6 +323,9 @@ function clickContentsListToggle(e: Event): void {
 //     } else if (windowWidth < 512) {
 //     }
 // }
+// }
+// function changeFontSize() {
+
 // }
 
 main();
