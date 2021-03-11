@@ -55,6 +55,7 @@ html {
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -335,6 +336,98 @@ body.normal>#waiting-frame {
 .refbegin~*,
 .reflist~* {
     word-break: break-all;
+}
+
+div.mw-highlight {
+    width: 100%;
+    overflow-x: scroll;
+    background-color: rgb(35, 15, 1);
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+div.mw-highlight pre {
+    color: #eee;
+}
+
+div.mw-highlight pre .kd,
+div.mw-highlight pre .kn {
+    color: rgb(0, 132, 255);
+}
+
+div.mw-highlight pre .kc,
+div.mw-highlight pre .n {
+    color: rgb(25, 42, 190);
+}
+
+div.mw-highlight pre .nx,
+div.mw-highlight pre .nn {
+    color: rgb(42, 205, 255);
+}
+
+div.mw-highlight pre .mf,
+div.mw-highlight pre .mi {
+    color: rgb(79, 230, 91);
+}
+
+div.mw-highlight pre .mb,
+div.mw-highlight pre .mo,
+div.mw-highlight pre .mh {
+    color: rgb(230, 79, 79);
+}
+
+div.mw-highlight pre .c1,
+div.mw-highlight pre .cm {
+    color: rgb(71, 145, 52);
+}
+
+div.mw-highlight pre .k {
+    color: rgb(179, 85, 255);
+}
+
+div.mw-highlight pre .s1,
+div.mw-highlight pre .s2,
+div.mw-highlight pre .s,
+div.mw-highlight pre .sc {
+    color: rgb(212, 127, 0);
+}
+
+div.mw-highlight pre .sr {
+    color: rgb(202, 0, 0);
+}
+
+div.mw-highlight pre .nb,
+div.mw-highlight pre .kt {
+    color: rgb(78, 245, 189);
+}
+
+div.mw-highlight pre .nf,
+div.mw-highlight pre .na,
+div.mw-highlight pre .nl {
+    color: rgb(255, 252, 104);
+}
+
+div.mw-highlight pre .nc {
+    color: rgb(0, 255, 0);
+}
+
+div.mw-highlight pre .nd {
+    color: rgb(255, 76, 240);
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+td {
+    overflow-x: scroll;
+}
+
+th {
+    width: 20%;
 }
 
 
