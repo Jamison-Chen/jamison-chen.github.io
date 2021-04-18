@@ -40,11 +40,11 @@ restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.addEventListe
 //     }
 // }
 function disableBtns() {
-    if (trainedMachineBtn != null && multiplayerBtn != null && naiveMachineBtn != null && board != null) {
+    if (trainedMachineBtn instanceof HTMLButtonElement && multiplayerBtn instanceof HTMLButtonElement && naiveMachineBtn instanceof HTMLButtonElement && board != null && controlBar instanceof HTMLElement) {
         multiplayerBtn.disabled = true;
         naiveMachineBtn.disabled = true;
         trainedMachineBtn.disabled = true;
-        controlBar === null || controlBar === void 0 ? void 0 : controlBar.style.bottom = "0";
+        controlBar.style.bottom = "0";
     }
 }
 function singlePlayerMode(e, shouldTrain) {
@@ -110,7 +110,7 @@ function startGame(firstPlayer) {
     }
 }
 function handleClickSingle(e) {
-    if (e.target != null) {
+    if (e.target instanceof HTMLElement) {
         placeMark(e.target, "X");
         let pos = [parseInt(e.target.id.split(",")[0]), parseInt(e.target.id.split(",")[1])];
         if (pos instanceof Array) {
@@ -127,7 +127,7 @@ function handleClickSingle(e) {
     }
 }
 function handleClickMulti(e) {
-    if (e.target != null) {
+    if (e.target instanceof HTMLElement) {
         const currentPlayer = xTurn ? "X" : "O";
         placeMark(e.target, currentPlayer);
         if (hasWinner(currentPlayer)) {
