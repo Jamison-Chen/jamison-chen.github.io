@@ -1,0 +1,130 @@
+html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    cursor: default;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+#animation-field {
+    position: relative;
+    height: 100vh;
+    width: 60vw;
+}
+
+#right-side {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 40vw;
+}
+
+#market-eq-chart {
+    height: 50%;
+    width: 100%;
+}
+
+#surplus-chart {
+    width: 100%;
+    height: 25%;
+}
+
+#control-bar {
+    padding: 10px 0 10px 8%;
+    display: flex;
+    height: 25%;
+}
+
+#parameter-field {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#parameter-field>div {
+    display: flex;
+    max-width: 100%;
+    padding: 5px 10px;
+}
+
+#parameter-field>div>div {
+    width: 180px;
+}
+
+#parameter-field>div>input {
+    width: 40px;
+}
+
+#btn-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
+}
+
+#start-btn,
+#reset-btn {
+    width: 80px;
+    text-align: center;
+    background-color: #000;
+    border-radius: 5px;
+    border-style: none;
+    padding: 8px 0;
+    margin: 10px auto;
+    color: #FFF;
+}
+
+#start-btn:hover,
+#reset-btn:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+#start-btn:active,
+#reset-btn:active {
+    background-color: #000;
+}
+
+#start-btn:disabled {
+    background-color: #aaa;
+}
+
+#start-btn:disabled:hover {
+    cursor: default;
+}
+
+.node {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+
+#back-bar {
+    display: flex;
+    margin: auto;
+}
+
+#back-bar a {
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+#back-bar a:hover {
+    background-color: #eee;
+}
+
+#back-bar a:active {
+    background-color: #ddd;
+}
