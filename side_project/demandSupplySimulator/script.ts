@@ -12,7 +12,7 @@ const numOfSupplierInput = document.getElementById("number-of-supplier");
 const dayToSimulateInput = document.getElementById("day-to-simulate");
 const pauseTimeInput = document.getElementById("pause-time");
 
-let marketEqData: (number | string)[][] = [["Day", "Given Price", "Equilibrium"]];
+let marketEqData: (number | string)[][] = [["Day", "Given Price", "Mkt. Eq."]];
 let consumerList: Consumer[] = [];
 let supplierList: Supplier[] = [];
 let consumerSurplus: number = 0;
@@ -48,12 +48,12 @@ function createNodeDiv(pauseTime: number): HTMLElement {
 }
 
 function preset(initialEq: number, numOfConsumer: number, numOfSupplier: number, pauseTime: number): void {
-    pm = new PriceMachine(initialEq);
+    pm = new PriceMachine(initialEq, 20);
 
     nodeDivSize = 0;
     // decide the size of each node
     if (animationField instanceof HTMLElement) {
-        nodeDivSize = Math.min(animationField.offsetHeight, animationField.offsetWidth) / (numOfConsumer + numOfSupplier);
+        nodeDivSize = Math.min(animationField.offsetHeight, animationField.offsetWidth) / (numOfConsumer + numOfSupplier) ** 0.7;
     }
 
     // initialize all consumers and supplier
@@ -83,7 +83,7 @@ function simulate(initialEq: number, maxDay: number, pauseTime: number): void {
             supplierList[i % supplierList.length].descendingQueueAConsumer(consumerList[i]);
             setTimeout(() => {
                 consumerList[i].findSupplier(supplierList[i % supplierList.length]);
-            }, pauseTime / 2);
+            }, pauseTime / 3);
         }
 
         let dealPriceToday: number[] = [];

@@ -1,9 +1,11 @@
 export class PriceMachine {
     private _numOfPairOut: number;
     private _equilibrium: number;
-    constructor(initialEq: number) {
+    private _priceChangeSpeed: number;
+    constructor(initialEq: number, priceChangeSpeed: number) {
         this._numOfPairOut = 0;
         this._equilibrium = initialEq;
+        this._priceChangeSpeed = priceChangeSpeed;
     }
     public get numOfPairOut(): number {
         return this._numOfPairOut;
@@ -22,7 +24,7 @@ export class PriceMachine {
     }
 
     public genPayableSellable(needCount: boolean): [number, number] {
-        if (this._numOfPairOut > 0 && this._numOfPairOut % 20 == 0) {
+        if (this._numOfPairOut > 0 && this._numOfPairOut % this._priceChangeSpeed == 0) {
             // random walking equilibrium
             this._equilibrium *= this.normalSample(1, 0.033);
             this._numOfPairOut++;
@@ -32,15 +34,12 @@ export class PriceMachine {
         }
         const a = this.normalSample(this._equilibrium, 0.36);
         const b = this.normalSample(this._equilibrium, 0.36);
-        if (a > b) {
-            // the first number is the max-payable of a consumer, let it be the bigger one
-            return [a, b];
-        } else {
-            return [b, a];
-        }
+        // if (a > b) {
+        //     // the first number is the max-payable of a consumer, let it be the bigger one
+        //     return [a, b];
+        // } else {
+        //     return [b, a];
+        // }
+        return [a, b];
     }
-    // public genPayableSellableAssigned(targetPayable: number, targetSellable: number): [number, number] {
-    //     this._numOfPairOut++;
-    //     return [this.normalSample(targetPayable, 0.25), this.normalSample(targetSellable, 0.25)];
-    // }
 }
