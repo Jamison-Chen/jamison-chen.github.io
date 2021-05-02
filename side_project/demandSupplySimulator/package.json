@@ -2,7 +2,7 @@
     "name": "DemandSupplySimulator",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "./modules/script.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start:build": "tsc -w",
@@ -10,15 +10,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Jamison-Chen/DemandSupplyGraph.git"
+        "url": "git+https://github.com/Jamison-Chen/DemandSupplySimulator.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Jamison-Chen/DemandSupplyGraph/issues"
+        "url": "https://github.com/Jamison-Chen/DemandSupplySimulator/issues"
     },
-    "homepage": "https://github.com/Jamison-Chen/DemandSupplyGraph#readme",
+    "homepage": "https://github.com/Jamison-Chen/DemandSupplySimulator#readme",
     "dependencies": {
         "concurrently": "^5.3.0"
     }
