@@ -12,12 +12,12 @@ const numOfSupplierInput = document.getElementById("number-of-supplier");
 const dayToSimulateInput = document.getElementById("day-to-simulate");
 const pauseTimeInput = document.getElementById("pause-time");
 
-let marketEqData: (number | string)[][] = [["Day", "Given Price", "Mkt. Eq."]];
-let consumerList: Consumer[] = [];
-let supplierList: Supplier[] = [];
-let consumerSurplus: number = 0;
-let producerSurplus: number = 0;
-let currentDay: number = 1;
+let marketEqData: (number | string)[][];
+let consumerList: Consumer[];
+let supplierList: Supplier[];
+let consumerSurplus: number;
+let producerSurplus: number;
+let currentDay: number;
 let pm: PriceMachine;
 let nodeDivSize: number;
 
@@ -161,6 +161,8 @@ function simulate(initialEq: number, maxDay: number, pauseTime: number): void {
             applyMarketEqChart(marketEqData);
             applySuplusChart(consumerSurplus, producerSurplus);
             setTimeout(() => { simulate(initialEq, maxDay, pauseTime) }, pauseTime);
+        } else {
+            enableControl();
         }
     }
 }
@@ -217,25 +219,15 @@ function drawSimulatedChart(dataIn: any[][], options: any, chartType: string, ta
     chart.draw(data, options);
 }
 
-
-if (startBtn instanceof HTMLButtonElement) {
-    startBtn.addEventListener("click", () => {
-        if (initialEqInput instanceof HTMLInputElement && numOfConsumerInput instanceof HTMLInputElement && numOfSupplierInput instanceof HTMLInputElement && dayToSimulateInput instanceof HTMLInputElement && pauseTimeInput instanceof HTMLInputElement) {
-            let initialEq: number = parseInt(initialEqInput.value);
-            let numOfConsumer: number = parseInt(numOfConsumerInput.value);
-            let numOfSupplier: number = parseInt(numOfSupplierInput.value);
-            let dayToSimulate: number = parseInt(dayToSimulateInput.value);
-            let pauseTime: number = parseInt(pauseTimeInput.value);
-            preset(initialEq, numOfConsumer, numOfSupplier, pauseTime);
-            simulate(initialEq, dayToSimulate, pauseTime);
-            initialEqInput.disabled = true;
-            numOfConsumerInput.disabled = true;
-            numOfSupplierInput.disabled = true;
-            dayToSimulateInput.disabled = true;
-            pauseTimeInput.disabled = true;
-        }
-        startBtn.disabled = true;
-    });
+function enableControl(): void {
+    if (startBtn instanceof HTMLButtonElement && initialEqInput instanceof HTMLInputElement && numOfConsumerInput instanceof HTMLInputElement && numOfSupplierInput instanceof HTMLInputElement && dayToSimulateInput instanceof HTMLInputElement && pauseTimeInput instanceof HTMLInputElement) {
+        startBtn.disabled = false;
+        initialEqInput.disabled = false;
+        numOfConsumerInput.disabled = false;
+        numOfSupplierInput.disabled = false;
+        dayToSimulateInput.disabled = false;
+        pauseTimeInput.disabled = false;
+    }
 }
 
 if (initialEqInput instanceof HTMLInputElement && numOfConsumerInput instanceof HTMLInputElement && numOfSupplierInput instanceof HTMLInputElement && dayToSimulateInput instanceof HTMLInputElement && pauseTimeInput instanceof HTMLInputElement) {
@@ -244,6 +236,34 @@ if (initialEqInput instanceof HTMLInputElement && numOfConsumerInput instanceof 
     numOfSupplierInput.value = "30";
     dayToSimulateInput.value = "100";
     pauseTimeInput.value = "1000";
+}
+
+if (startBtn instanceof HTMLButtonElement && animationField != null) {
+    startBtn.addEventListener("click", () => {
+        animationField.innerHTML = "";
+        marketEqData = [["Day", "Given Price", "Mkt. Eq."]];
+        consumerList = [];
+        supplierList = [];
+        consumerSurplus = 0;
+        producerSurplus = 0;
+        currentDay = 1;
+
+        startBtn.disabled = true;
+        if (initialEqInput instanceof HTMLInputElement && numOfConsumerInput instanceof HTMLInputElement && numOfSupplierInput instanceof HTMLInputElement && dayToSimulateInput instanceof HTMLInputElement && pauseTimeInput instanceof HTMLInputElement) {
+            let initialEq: number = parseInt(initialEqInput.value);
+            let numOfConsumer: number = parseInt(numOfConsumerInput.value);
+            let numOfSupplier: number = parseInt(numOfSupplierInput.value);
+            let dayToSimulate: number = parseInt(dayToSimulateInput.value);
+            let pauseTime: number = parseInt(pauseTimeInput.value);
+            initialEqInput.disabled = true;
+            numOfConsumerInput.disabled = true;
+            numOfSupplierInput.disabled = true;
+            dayToSimulateInput.disabled = true;
+            pauseTimeInput.disabled = true;
+            preset(initialEq, numOfConsumer, numOfSupplier, pauseTime);
+            simulate(initialEq, dayToSimulate, pauseTime);
+        }
+    });
 }
 
 if (resetBtn != null) {
