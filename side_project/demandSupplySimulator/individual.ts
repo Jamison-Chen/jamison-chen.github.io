@@ -6,7 +6,7 @@ export class Individual {
     private _aggressiveness: number;
     constructor(aDiv: HTMLElement) {
         this.divControlled = aDiv;
-        this._radius = 1.5;
+        this._radius = 1;
         this._newInMkt = true;
         this._dayToLive = 20;
         this._aggressiveness = 0;

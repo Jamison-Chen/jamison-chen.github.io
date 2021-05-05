@@ -73,7 +73,7 @@ function simulate(initialEq, maxDay, pauseTime) {
             supplierList[i % supplierList.length].descendingQueueAConsumer(consumerList[i]);
             setTimeout(() => {
                 consumerList[i].findSupplier(supplierList[i % supplierList.length]);
-            }, pauseTime / 3);
+            }, pauseTime / 2);
         }
         let dealPriceToday = [];
         // check if deal

@@ -4,6 +4,7 @@ html {
     margin: 0;
     cursor: default;
     user-select: none;
+    overflow: hidden;
 }
 
 body {
