@@ -158,7 +158,7 @@ function humanMakeMove(e, roles) {
                 numOfCoin -= pickNum;
                 judge(roles);
                 if (!gameOver) {
-                    notifyNextPlayer(roles);
+                    setTimeout(() => notifyNextPlayer(roles), 1000);
                 }
                 else if (choiceField != null) {
                     choiceField.innerHTML = "";
@@ -190,9 +190,6 @@ function notifyNextPlayer(roles) {
         if (gameOver && choiceField != null) {
             choiceField.innerHTML = "";
         }
-    }
-    else {
-        console.log("Please pick a number.");
     }
 }
 computer1 = new MachinePlayer(numOfCoin, maxPickable);

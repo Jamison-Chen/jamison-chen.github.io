@@ -162,7 +162,7 @@ function humanMakeMove(e: Event, roles: (string | MachinePlayer)[]): void {
                 numOfCoin -= pickNum;
                 judge(roles);
                 if (!gameOver) {
-                    notifyNextPlayer(roles);
+                    setTimeout(() => notifyNextPlayer(roles), 1000);
                 } else if (choiceField != null) {
                     choiceField.innerHTML = "";
                 }
@@ -195,8 +195,6 @@ function notifyNextPlayer(roles: (string | MachinePlayer)[]): void {
         if (gameOver && choiceField != null) {
             choiceField.innerHTML = "";
         }
-    } else {
-        console.log("Please pick a number.")
     }
 }
 
