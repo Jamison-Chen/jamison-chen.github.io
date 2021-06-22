@@ -1,36 +1,40 @@
-::-webkit-scrollbar {
-    display: none;
-}
-
 @media screen and (min-width:1024px) {
-     :root {
+    :root {
         --rootFontSize: 2rem;
         --w: 50%;
     }
 }
 
 @media screen and (min-width:512px) and (max-width:1024px) {
-     :root {
+    :root {
         --rootFontSize: 1.9rem;
         --w: 75%;
     }
 }
 
 @media screen and (max-width:512px) {
-     :root {
+    :root {
         --rootFontSize: 1.6rem;
         --w: 100%;
     }
 }
 
 #search-bar {
-    width: 0px;
     height: 70%;
     font-size: 1rem;
     color: #888;
     border-radius: 50px;
-    border: 0px solid transparent;
     transition-duration: 300ms;
+}
+
+#search-bar.expanded {
+    width: var(--w);
+    border: 2px solid #888;
+}
+
+#search-bar.folded {
+    width: 0px;
+    border: 0px solid transparent;
 }
 
 #search-bar:focus {
@@ -54,49 +58,60 @@
 }
 
 #main,
-#class-bar {
+#category-bar {
     width: var(--w);
 }
 
-.class-tag {
+.category-tag {
     font-size: max(0.9rem, var(--rootFontSize) * 0.5);
+    color: #000;
     border-bottom: 2px solid;
     border-bottom-color: transparent;
     transition-duration: 300ms;
 }
 
-.class-tag:hover {
+.category-tag:hover {
     text-shadow: 1px 1px 5px #ccc;
 }
 
-#class-all:hover {
+#category-all:hover,
+#category-all.active {
     color: #888;
     border-bottom-color: #888;
 }
 
-#class-economics:hover {
+#category-economics:hover,
+#category-economics.active {
     color: #ffb84d;
     border-bottom-color: #ffb84d;
 }
 
-#class-programming:hover {
+#category-programming:hover,
+#category-programming.active {
     color: #10c100;
     border-bottom-color: #10c100;
 }
 
-#class-ai:hover {
+#category-ai:hover,
+#category-ai.active {
     color: #4da6ff;
     border-bottom-color: #4da6ff;
 }
 
-#class-others:hover {
+#category-others:hover,
+#category-others.active {
     color: #f37bd9;
     border-bottom-color: #f37bd9;
+}
+
+#main {
+    height: max-content;
 }
 
 .preview {
     position: relative;
     height: 400px;
+    width: 100%;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 1px 1px 6px 2px #bbb;

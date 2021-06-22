@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/forAll.css">
-    <link rel="stylesheet" href="./css/forHome.css">
+    <link rel="stylesheet" href="./forIndex.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script type="module" src="./js/forHome.mjs" defer></script>
+    <script type="module" src="./forIndex.mjs" defer></script>
     <link rel="SHORTCUT ICON" href="/favicon.ico">
     <title>陳秉洋 Jamison Chen</title>
 </head>
@@ -22,12 +22,12 @@
         </div>
     </div>
     <div id="header" class="w-100 d-flex pt-5 align-items-center justify-content-center">
-        <div id="class-bar" class="d-flex justify-content-around">
-            <div class="class-tag" id="class-all">ALL</div>
-            <div class="class-tag" id="class-economics">ECONOMICS</div>
-            <div class="class-tag" id="class-programming">PROGRAMMING</div>
-            <div class="class-tag" id="class-ai">AI</div>
-            <div class="class-tag" id="class-others">OTHERS</div>
+        <div id="category-bar" class="d-flex justify-content-around">
+            <div class="category-tag" id="category-all">ALL</div>
+            <div class="category-tag" id="category-economics">ECONOMICS</div>
+            <div class="category-tag" id="category-programming">PROGRAMMING</div>
+            <div class="category-tag" id="category-ai">AI</div>
+            <div class="category-tag" id="category-others">OTHERS</div>
         </div>
         <!-- <div id="header-right-side" class="d-flex justify-content-end pr-3 align-items-center">
             <a href="/" id="back-to-home">
@@ -44,12 +44,12 @@
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg>
         </div>
-        <input type="text" id="search-bar" class="text-center">
+        <input type="text" id="search-bar" class="text-center folded">
     </div>
-    <div id="main" class="main p-0">
-        <div class="preview economics" data-url='./articles/歷年指考難度與政大經濟系最低錄取分數之關係.html'>
+    <div id="main" class="p-0">
+        <!-- <div class="preview economics" data-url='./articles/歷年指考難度與政大經濟系最低錄取分數之關係.html'>
             <div class="img-container">
-                <img src="./images/test.jpg" alt="" srcset="">
+                <img src="./images/歷年指考難度與政大經濟系最低錄取分數之關係.jpg" alt="" srcset="">
             </div>
             <h1 class="article-title">歷年指考難度與政大經濟系最低錄取分數之關係</h1>
             <div class="article-info">
@@ -58,13 +58,9 @@
                 <div class="article-info-label">ECONOMICS</div>
             </div>
             <div class="article-content-preview">
-                本報告試圖用歷年指考五標之分數資料，與歷年政大經濟系指考最低錄取分數資料，描繪出一個模型供未來年度欲考取政大經濟系的學生預測，其在指考的表現至少應該如何，簡言之便是在做一個單一科系的落點分析。預期這個概念可以延伸使用至所有校系，如此一來便可做出一份具計量基礎的更完整的綜合落點分析。 本報告所採集之資料涵蓋民國93年至民國106年，至於為何沒有採用107、108兩年，後續報告中將細述。以每一年的資料作為一個樣本，但也因為指考開辦至今僅16年，樣本數量極為有限，故在做未來之預測時可能隨時間之推進而逐漸失真，因此此模型必須在每一年有新的樣本產生之後進行修正，方能維持其準確性。
+                
             </div>
-        </div>
-        <!-- <div class="preview" onclick="location.href='#'"></div>
-        <div class="preview" onclick="location.href='#'"></div>
-        <div class="preview" onclick="location.href='#'"></div>
-        <div class="preview" onclick="location.href='#'"></div> -->
+        </div> -->
     </div>
     <a href="/" id="back-to-home">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#888" class="bi bi-house-door-fill" viewBox="0 0 16 16">
