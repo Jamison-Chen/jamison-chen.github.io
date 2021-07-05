@@ -16,7 +16,14 @@
     <div id="animation-field"></div>
     <div id="right-side">
         <div id="market-eq-chart"></div>
-        <div id="surplus-chart"></div>
+        <div class=tab-container>
+            <div class="tabs clearfix">
+                <div id="surplus-tab" class="tab active">Surplus</div>
+                <div id="curve-tab" class="tab">Curve</div>
+            </div>
+        </div>
+        <div id="surplus-chart" class="info-chart active"></div>
+        <div id="demand-supply-chart" class="info-chart"></div>
         <div id="control-bar">
             <div id="parameter-field">
                 <div>
@@ -58,7 +65,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 

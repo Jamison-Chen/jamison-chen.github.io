@@ -3,6 +3,7 @@ import { PriceMachine } from './priceMachine.js';
 
 const animationField = document.getElementById("animation-field");
 const marketEqChart = document.getElementById("market-eq-chart");
+const curveChart = document.getElementById("demand-supply-chart");
 const surplusChart = document.getElementById("surplus-chart");
 const startBtn = document.getElementById("start-btn");
 const resetBtn = document.getElementById("reset-btn");
@@ -11,6 +12,8 @@ const numOfConsumerInput = document.getElementById("number-of-consumer");
 const numOfSupplierInput = document.getElementById("number-of-supplier");
 const dayToSimulateInput = document.getElementById("day-to-simulate");
 const pauseTimeInput = document.getElementById("pause-time");
+const allTabs = document.getElementsByClassName("tab");
+const allInfoCharts = document.getElementsByClassName("info-chart");
 
 let marketEqData: (number | string)[][];
 let consumerList: Consumer[];
@@ -74,6 +77,32 @@ function preset(initialEq: number, numOfConsumer: number, numOfSupplier: number,
 
 function simulate(initialEq: number, maxDay: number, pauseTime: number): void {
     if (animationField != null) {
+        // prepare demand/supply curve data
+        let allBidPrices: number[] = [];
+        let allAskPrices: number[] = [];
+        for (let eachConsumer of consumerList) allBidPrices.push(eachConsumer.bidPrice);
+        for (let eachSupplier of supplierList) allAskPrices.push(eachSupplier.askPrice);
+        let maxNumInChart = initialEq * 2;
+        let minNumInChart = 0;
+        let delta = maxNumInChart - minNumInChart
+        let priceSequence: number[] = [];
+        for (let i = 0; i < 50; i++) {
+            priceSequence.push(minNumInChart + delta / 50 * i)
+        }
+        let curveData: (number[] | string[])[] = [["price", "D", "S"]];
+        for (let each of priceSequence) {
+            let qd = 0;
+            let qs = 0;
+            for (let eachBidPrice of allBidPrices) {
+                if (eachBidPrice >= each) qd++;
+            }
+            for (let eachAskPrice of allAskPrices) {
+                if (eachAskPrice <= each) qs++;
+            }
+            curveData.push([each, qd, qs]);
+        }
+        applyCurveChart(curveData);
+
         // suffle consumer list and supplier list before matching them together
         consumerList = suffleArray(consumerList);
         supplierList = suffleArray(supplierList);
@@ -130,7 +159,7 @@ function simulate(initialEq: number, maxDay: number, pauseTime: number): void {
             eachSupplier.consumerQueue = [];
         }
 
-        // go back to rest and rebid/reask 
+        // go back and rebid/reask 
         for (let eachConsumer of consumerList) {
             eachConsumer.goBack(animationField);
             if (!eachConsumer.newInMkt) {
@@ -159,6 +188,7 @@ function simulate(initialEq: number, maxDay: number, pauseTime: number): void {
         if (currentDay <= maxDay) {
             currentDay++;
             applyMarketEqChart(marketEqData);
+
             applySuplusChart(consumerSurplus, producerSurplus);
             setTimeout(() => { simulate(initialEq, maxDay, pauseTime) }, pauseTime);
         } else {
@@ -182,6 +212,26 @@ function applyMarketEqChart(dataIn: (string | number)[][]): void {
             height: marketEqChart.offsetHeight,
         };
         google.charts.setOnLoadCallback(() => drawSimulatedChart(dataIn, options, "LineChart", marketEqChart));
+    }
+}
+
+function applyCurveChart(dataIn: (string | number)[][]): void {
+    if (curveChart != null) {
+        google.charts.load('current', { 'packages': ["corechart"] });
+        let options = {
+            title: 'Demand / Supply Curve',
+            titleTextStyle: {
+                fontSize: 14,
+                bold: false,
+                color: "#777"
+            },
+            curveType: 'none',
+            width: curveChart.offsetWidth,
+            height: curveChart.offsetHeight,
+            vAxis: { title: 'Q' },
+            hAxis: { title: 'P' }
+        };
+        google.charts.setOnLoadCallback(() => drawSimulatedChart(dataIn, options, "LineChart", curveChart));
     }
 }
 
@@ -229,6 +279,26 @@ function enableControl(): void {
         pauseTimeInput.disabled = false;
     }
 }
+
+function controlTab(): void {
+    for (let each of allTabs) {
+        if (each instanceof HTMLElement) each.addEventListener("click", highlightTab);
+    }
+}
+
+function highlightTab(e: Event): void {
+    for (let i = 0; i < allTabs.length; i++) {
+        if (allTabs[i] == e.currentTarget && allInfoCharts[i] instanceof HTMLElement) {
+            allTabs[i].classList.add("active");
+            allInfoCharts[i].classList.add("active");
+        } else {
+            allTabs[i].classList.remove("active");
+            allInfoCharts[i].classList.remove("active");
+        }
+    }
+}
+
+controlTab();
 
 if (initialEqInput instanceof HTMLInputElement && numOfConsumerInput instanceof HTMLInputElement && numOfSupplierInput instanceof HTMLInputElement && dayToSimulateInput instanceof HTMLInputElement && pauseTimeInput instanceof HTMLInputElement) {
     initialEqInput.value = "100";

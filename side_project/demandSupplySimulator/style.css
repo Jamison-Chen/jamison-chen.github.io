@@ -32,9 +32,113 @@ body {
     width: 100%;
 }
 
+.tab-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 25px;
+}
+
+.tabs {
+    margin: 0;
+    line-height: 25px;
+    max-height: 25px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    color: #444;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.tab.active {
+    z-index: 2;
+    background: #fefefe;
+    color: #000;
+}
+
+.tab.active:before {
+    border-color: transparent #fefefe transparent transparent;
+}
+
+.tab.active:after {
+    border-color: transparent transparent transparent #fefefe;
+}
+
+.tab {
+    float: right;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 0 30px 0 25px;
+    height: 170px;
+    background: #efefef;
+    position: relative;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.6);
+    max-width: 200px;
+}
+
+.tab:before,
+.tab:after {
+    content: '';
+    background: transparent;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    border-width: 10px;
+    top: 5px;
+    border-style: solid;
+    position: absolute;
+}
+
+.tab:before {
+    border-color: transparent #efefef transparent transparent;
+    transform: rotate(48deg);
+    left: -20px;
+}
+
+.tab:after {
+    border-color: transparent transparent transparent #efefef;
+    transform: rotate(-48deg);
+    right: -20px;
+}
+
+.tab>span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
 #surplus-chart {
     width: 100%;
     height: 25%;
+    display: none;
+}
+
+#surplus-chart.active {
+    display: block;
+}
+
+#demand-supply-chart {
+    width: 100%;
+    height: 25%;
+    display: none;
+}
+
+#demand-supply-chart.active {
+    display: block;
 }
 
 #control-bar {
